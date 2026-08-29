@@ -70,7 +70,18 @@ func (c *Context) moreBuiltin(name string, args []syntax.Argument, env *Environm
 		}
 		return takePositions(vals[0], p), nil
 	case "sort":
-		return sortValue(vals[0], false)
+		decreasing := false
+		if value, ok := named["decreasing"]; ok {
+			decreasing = scalarLogical(value)
+		}
+		var naLast *bool
+		if value, ok := named["na.last"]; ok {
+			if logicalValue, ok := value.(*LogicalVector); ok && len(logicalValue.Data) > 0 && logicalValue.Data[0] != NA {
+				placement := logicalValue.Data[0] == True
+				naLast = &placement
+			}
+		}
+		return sortValue(vals[0], decreasing, naLast)
 	case "order":
 		decreasing := false
 		if value, ok := named["decreasing"]; ok {
@@ -128,10 +139,25 @@ func (c *Context) moreBuiltin(name string, args []syntax.Argument, env *Environm
 	return nil, fmt.Errorf("unknown base builtin %s", name)
 }
 
-func sortValue(v Value, decreasing bool) (Value, error) {
-	p, e := orderPositions(v, decreasing)
+func sortValue(v Value, decreasing bool, naLast *bool) (Value, error) {
+	placement := true
+	if naLast != nil {
+		placement = *naLast
+	}
+	p, e := orderPositionsOptions(v, decreasing, placement)
 	if e != nil {
 		return nil, e
+	}
+	// GNU R's sort default is na.last=NA, which removes missing values. A
+	// concrete TRUE/FALSE retains them at the requested end.
+	if naLast == nil {
+		filtered := p[:0]
+		for _, position := range p {
+			if !valueMissingAt(v, position) {
+				filtered = append(filtered, position)
+			}
+		}
+		p = filtered
 	}
 	return takePositions(v, p), nil
 }

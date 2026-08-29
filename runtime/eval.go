@@ -216,6 +216,16 @@ func evalLiteral(e *syntax.Literal) (Value, error) {
 }
 
 func (c *Context) evalCall(call *syntax.Call, env *Environment) (Value, error) {
+	// Namespace-qualified calls are language objects in R. Route the selected
+	// function through the normal dispatcher so builtins and closures share the
+	// same call semantics (for example base::sum(...)).
+	if qualified, ok := call.Function.(*syntax.Call); ok {
+		if operator, ok := qualified.Function.(*syntax.Symbol); ok && (operator.Name == "::" || operator.Name == ":::") && len(qualified.Arguments) == 2 {
+			if name, ok := qualified.Arguments[1].Value.(*syntax.Symbol); ok {
+				return c.evalCall(&syntax.Call{Function: &syntax.Symbol{Name: name.Name, At: name.At}, Arguments: call.Arguments, At: call.At}, env)
+			}
+		}
+	}
 	if s, ok := call.Function.(*syntax.Symbol); ok {
 		if s.Name == "print" || s.Name == "summary" || s.Name == "as.character" {
 			if v, done, e := c.dispatchS3(s.Name, call.Arguments, env); done {
@@ -623,6 +633,12 @@ func (c *Context) callClosureActual(fn *Closure, args []ActualArgument) (Value, 
 			frame.Bind(parameter.Name, &Eager{Value: actual.EagerValue})
 		} else if actual != nil && actual.Argument.Value != nil {
 			frame.Bind(parameter.Name, &Promise{Expr: actual.Argument.Value, Env: actual.Env, Supplied: true})
+		} else if nativeDefault := fn.Defaults[parameter.Name]; nativeDefault != nil {
+			value, defaultErr := nativeDefault(c, frame)
+			if defaultErr != nil {
+				return nil, defaultErr
+			}
+			frame.Bind(parameter.Name, &Eager{Value: value})
 		} else if parameter.Default != nil {
 			frame.Bind(parameter.Name, &Promise{Expr: parameter.Default, Env: frame, Supplied: false})
 		} else {
@@ -637,6 +653,9 @@ func (c *Context) callClosureActual(fn *Closure, args []ActualArgument) (Value, 
 			frame.Bind(".S3Object", binding)
 		}
 		break
+	}
+	if fn.NativeBody != nil {
+		return fn.NativeBody(c, frame)
 	}
 	v, err := c.Eval(fn.Body, frame)
 	if x, ok := err.(*control); ok && x.kind == "return" {

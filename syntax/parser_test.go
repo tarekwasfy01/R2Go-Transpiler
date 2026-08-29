@@ -12,6 +12,41 @@ func TestUTF8BOMAtStartIsIgnored(t *testing.T) {
 	}
 }
 
+func TestNamespaceCallBindsBeforeArguments(t *testing.T) {
+	program, err := Parse("base::sum(1:4)")
+	if err != nil {
+		t.Fatal(err)
+	}
+	outer, ok := program.Expressions[0].(*Call)
+	if !ok {
+		t.Fatalf("outer expression is %T", program.Expressions[0])
+	}
+	qualified, ok := outer.Function.(*Call)
+	if !ok {
+		t.Fatalf("call function is %T", outer.Function)
+	}
+	op, _ := qualified.Function.(*Symbol)
+	name, _ := qualified.Arguments[1].Value.(*Symbol)
+	if op == nil || op.Name != "::" || name == nil || name.Name != "sum" {
+		t.Fatalf("unexpected namespace AST: %#v", qualified)
+	}
+}
+
+func TestNativePipeRewritesToCall(t *testing.T) {
+	program, err := Parse("1:5 |> sum()")
+	if err != nil {
+		t.Fatal(err)
+	}
+	call, ok := program.Expressions[0].(*Call)
+	if !ok {
+		t.Fatalf("pipe expression is %T", program.Expressions[0])
+	}
+	fn, _ := call.Function.(*Symbol)
+	if fn == nil || fn.Name != "sum" || len(call.Arguments) != 1 {
+		t.Fatalf("pipe was not rewritten to sum(lhs): %#v", call)
+	}
+}
+
 func TestParseUniversalCoreShapes(t *testing.T) {
 	src := "f <- function(x, y = 2) {\n  if (x > y) x + y else x * y\n}\nfor (i in 1:3) print(f(i))\nquoted <- quote(a + 1)\n"
 	p, err := Parse(src)

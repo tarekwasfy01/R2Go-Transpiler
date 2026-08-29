@@ -2,6 +2,27 @@ package runtime
 
 import "fmt"
 
+func cloneAttributeMap(src map[string]Value) map[string]Value {
+	if src == nil {
+		return nil
+	}
+	out := make(map[string]Value, len(src))
+	for name, value := range src {
+		out[name] = value
+	}
+	return out
+}
+
+// inheritUnaryAttributes applies the Math/Math2 shape rule in one place.
+// Element-wise unary operations retain names, dimensions and dimnames even
+// when their result container changes from integer to double.
+func inheritUnaryAttributes(dst, src Value) Value {
+	if err := setAttributes(dst, cloneAttributeMap(Attributes(src))); err != nil {
+		panic(err)
+	}
+	return dst
+}
+
 // Attributes returns the mutable attribute map owned by an R value. NULL and
 // non-object runtime values deliberately have no attribute storage.
 func Attributes(v Value) map[string]Value {
@@ -159,33 +180,23 @@ func replaceAttributeMap(v Value, replacement Value) error {
 }
 
 func cloneValue(v Value) Value {
-	copyAttrs := func(src map[string]Value) map[string]Value {
-		if src == nil {
-			return nil
-		}
-		o := make(map[string]Value, len(src))
-		for k, v := range src {
-			o[k] = v
-		}
-		return o
-	}
 	switch x := v.(type) {
 	case *RawVector:
-		return &RawVector{Data: append([]byte(nil), x.Data...), Attr: copyAttrs(x.Attr)}
+		return &RawVector{Data: append([]byte(nil), x.Data...), Attr: cloneAttributeMap(x.Attr)}
 	case *LogicalVector:
-		return &LogicalVector{Data: append([]Logical(nil), x.Data...), Attr: copyAttrs(x.Attr)}
+		return &LogicalVector{Data: append([]Logical(nil), x.Data...), Attr: cloneAttributeMap(x.Attr)}
 	case *IntegerVector:
-		return &IntegerVector{Data: append([]int64(nil), x.Data...), Missing: append([]bool(nil), x.Missing...), Attr: copyAttrs(x.Attr)}
+		return &IntegerVector{Data: append([]int64(nil), x.Data...), Missing: append([]bool(nil), x.Missing...), Attr: cloneAttributeMap(x.Attr)}
 	case *DoubleVector:
-		return &DoubleVector{Data: append([]float64(nil), x.Data...), Missing: append([]bool(nil), x.Missing...), Attr: copyAttrs(x.Attr)}
+		return &DoubleVector{Data: append([]float64(nil), x.Data...), Missing: append([]bool(nil), x.Missing...), Attr: cloneAttributeMap(x.Attr)}
 	case *ComplexVector:
-		return &ComplexVector{Data: append([]complex128(nil), x.Data...), Missing: append([]bool(nil), x.Missing...), Attr: copyAttrs(x.Attr)}
+		return &ComplexVector{Data: append([]complex128(nil), x.Data...), Missing: append([]bool(nil), x.Missing...), Attr: cloneAttributeMap(x.Attr)}
 	case *CharacterVector:
-		return &CharacterVector{Data: append([]string(nil), x.Data...), Missing: append([]bool(nil), x.Missing...), Attr: copyAttrs(x.Attr)}
+		return &CharacterVector{Data: append([]string(nil), x.Data...), Missing: append([]bool(nil), x.Missing...), Attr: cloneAttributeMap(x.Attr)}
 	case *List:
-		return &List{Data: append([]Value(nil), x.Data...), Names: append([]string(nil), x.Names...), Attr: copyAttrs(x.Attr)}
+		return &List{Data: append([]Value(nil), x.Data...), Names: append([]string(nil), x.Names...), Attr: cloneAttributeMap(x.Attr)}
 	case *Formula:
-		return &Formula{Expr: x.Expr, Env: x.Env, Attr: copyAttrs(x.Attr)}
+		return &Formula{Expr: x.Expr, Env: x.Env, Attr: cloneAttributeMap(x.Attr)}
 	default:
 		return v
 	}

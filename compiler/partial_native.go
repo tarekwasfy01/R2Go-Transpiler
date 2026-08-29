@@ -47,8 +47,9 @@ func generatePartialNativeMain(program *syntax.Program, originalR string, preser
 	}
 	blocks := make([]loweredBlock, len(program.Expressions))
 	fallbacks := 0
+	emitter := newMatrixNativeEmitter()
 	for i, expression := range program.Expressions {
-		if code, ok := (matrixNativeEmitter{}).statement(expression); ok {
+		if code, ok := emitter.statement(expression); ok {
 			blocks[i].matrixCode = code
 			continue
 		}

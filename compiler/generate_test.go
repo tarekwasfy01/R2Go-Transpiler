@@ -74,7 +74,7 @@ func TestGenerateMainNativeVectorLowering(t *testing.T) {
 	}
 }
 
-func TestUnsupportedBlocksStayAsOriginalRComments(t *testing.T) {
+func TestDefaultedClosureUsesMainMatrix(t *testing.T) {
 	source := "f <- function(x = 2) x + 1\nf()"
 	p, err := syntax.Parse(source)
 	if err != nil {
@@ -90,9 +90,14 @@ func TestUnsupportedBlocksStayAsOriginalRComments(t *testing.T) {
 			t.Fatalf("fallback output lacks %q:\n%s", want, text)
 		}
 	}
-	for _, required := range []string{"compatibilitySource0001", "RunSourceInContext", `MustCall(ctx, "f"`} {
+	for _, required := range []string{"NewNativeFunction", `Name: "x"`, `MustCall(ctx, "f"`} {
 		if !strings.Contains(text, required) {
-			t.Fatalf("unsupported block is not executable via %q:\n%s", required, text)
+			t.Fatalf("matrix closure output lacks %q:\n%s", required, text)
+		}
+	}
+	for _, forbidden := range []string{"compatibilitySource", "RunSourceInContext", "RunEncodedProgramInContext"} {
+		if strings.Contains(text, forbidden) {
+			t.Fatalf("matrix closure unexpectedly uses fallback %q:\n%s", forbidden, text)
 		}
 	}
 }
@@ -134,7 +139,7 @@ func TestStrictNativeModeRejectsCompatibilityFallback(t *testing.T) {
 }
 
 func TestFallbackOptions(t *testing.T) {
-	source := "f <- function(x = 2) x + 1\nf()"
+	source := "z <- 1i\nz"
 	p, err := syntax.Parse(source)
 	if err != nil {
 		t.Fatal(err)

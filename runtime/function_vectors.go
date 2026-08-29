@@ -159,6 +159,20 @@ func (c *Context) executeUnaryVector(plan ExecutionPlan, args []syntax.Argument,
 		parameter = pn.Data[0]
 	}
 	fn := unaryFunctionVector[planCoordinate(plan)]
+	if plan.CEntry == "do_abs" {
+		if integers, ok := v.(*IntegerVector); ok {
+			out := &IntegerVector{Data: append([]int64(nil), integers.Data...), Missing: append([]bool(nil), integers.Missing...)}
+			for i := range out.Data {
+				if i < len(out.Missing) && out.Missing[i] {
+					continue
+				}
+				if out.Data[i] < 0 {
+					out.Data[i] = -out.Data[i]
+				}
+			}
+			return inheritUnaryAttributes(out, v), nil
+		}
+	}
 	out := &DoubleVector{Data: make([]float64, len(x.Data)), Missing: append([]bool(nil), x.Missing...)}
 	for i, n := range x.Data {
 		if missingAt(x, i) {
@@ -167,7 +181,7 @@ func (c *Context) executeUnaryVector(plan ExecutionPlan, args []syntax.Argument,
 			out.Data[i] = fn(n, parameter)
 		}
 	}
-	return out, nil
+	return inheritUnaryAttributes(out, v), nil
 }
 
 func (c *Context) executeBinaryVector(plan ExecutionPlan, args []syntax.Argument, env *Environment) (Value, error) {
@@ -324,6 +338,16 @@ func (c *Context) executeScanVector(plan ExecutionPlan, args []syntax.Argument, 
 		}
 		out.Data[i] = state
 	}
+	if (v.Kind() == IntegerKind || v.Kind() == LogicalKind) && (plan.Offset == "1" || plan.Offset == "3" || plan.Offset == "4") {
+		integers := &IntegerVector{Data: make([]int64, len(out.Data)), Missing: append([]bool(nil), out.Missing...)}
+		for i, value := range out.Data {
+			if i < len(integers.Missing) && integers.Missing[i] {
+				continue
+			}
+			integers.Data[i] = int64(value)
+		}
+		return inheritUnaryAttributes(integers, v), nil
+	}
 	return out, nil
 }
 
@@ -389,6 +413,7 @@ func (c *Context) executeReduceVector(plan ExecutionPlan, args []syntax.Argument
 	naRemove := false
 	values := []float64{}
 	missing := false
+	integerInputs := true
 	for _, arg := range args {
 		if arg.Name != "na.rm" {
 			continue
@@ -410,6 +435,9 @@ func (c *Context) executeReduceVector(plan ExecutionPlan, args []syntax.Argument
 		if e != nil {
 			return nil, e
 		}
+		if v.Kind() != IntegerKind && v.Kind() != LogicalKind {
+			integerInputs = false
+		}
 		n, e := numbers(v)
 		if e != nil {
 			return nil, e
@@ -425,6 +453,9 @@ func (c *Context) executeReduceVector(plan ExecutionPlan, args []syntax.Argument
 		}
 	}
 	if missing {
+		if (plan.Offset == "0" || plan.Offset == "2" || plan.Offset == "3") && integerInputs {
+			return &IntegerVector{Data: []int64{0}, Missing: []bool{true}}, nil
+		}
 		return &DoubleVector{Data: []float64{NAReal()}, Missing: []bool{true}}, nil
 	}
 	result := 0.0
@@ -432,6 +463,9 @@ func (c *Context) executeReduceVector(plan ExecutionPlan, args []syntax.Argument
 	case "0":
 		for _, x := range values {
 			result += x
+		}
+		if integerInputs && result >= math.MinInt64 && result <= math.MaxInt64 && result == math.Trunc(result) {
+			return &IntegerVector{Data: []int64{int64(result)}}, nil
 		}
 	case "1":
 		if len(values) == 0 {
@@ -468,6 +502,9 @@ func (c *Context) executeReduceVector(plan ExecutionPlan, args []syntax.Argument
 		for _, x := range values {
 			result *= x
 		}
+	}
+	if integerInputs && (plan.Offset == "2" || plan.Offset == "3") {
+		return &IntegerVector{Data: []int64{int64(result)}}, nil
 	}
 	return &DoubleVector{Data: []float64{result}}, nil
 }

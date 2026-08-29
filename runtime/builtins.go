@@ -99,7 +99,7 @@ func (c *Context) builtin(name string, args []syntax.Argument, env *Environment)
 		if len(vals) != 1 {
 			return nil, fmt.Errorf("length expects one argument")
 		}
-		return &DoubleVector{Data: []float64{float64(Length(vals[0]))}}, nil
+		return &IntegerVector{Data: []int64{int64(Length(vals[0]))}}, nil
 	case "typeof":
 		if len(vals) != 1 {
 			return nil, fmt.Errorf("typeof expects one argument")

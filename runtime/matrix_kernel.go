@@ -19,7 +19,7 @@ func (c *Context) matrixKernel(descriptor ExecutionPlan, args []syntax.Argument,
 		if err != nil {
 			return nil, err
 		}
-		return &DoubleVector{Data: []float64{float64(Length(v))}}, nil
+		return &IntegerVector{Data: []int64{int64(Length(v))}}, nil
 	case "transpose":
 		return c.matrixTranspose(args, env)
 	case "coordinates":
@@ -45,19 +45,15 @@ func (c *Context) matrixDiagonal(args []syntax.Argument, env *Environment) (Valu
 		return nil, err
 	}
 	if dims, ok := dimensions(x); ok && len(dims) == 2 && len(args) == 1 {
-		values, err := numbers(x)
-		if err != nil {
-			return nil, err
-		}
 		n := dims[0]
 		if dims[1] < n {
 			n = dims[1]
 		}
-		out := &DoubleVector{Data: make([]float64, n), Missing: make([]bool, n)}
+		positions := make([]int, n)
 		for i := 0; i < n; i++ {
-			out.Data[i], out.Missing[i] = values.Data[i+dims[0]*i], missingAt(values, i+dims[0]*i)
+			positions[i] = i + dims[0]*i
 		}
-		return out, nil
+		return takePositions(x, positions), nil
 	}
 	rows := Length(x)
 	cols := rows

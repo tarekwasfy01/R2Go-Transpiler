@@ -127,6 +127,13 @@ func (c *Context) operator(op string, args []syntax.Argument, env *Environment) 
 			step = -1
 		}
 		n = int(math.Abs(to-from)) + 1
+		if from == math.Trunc(from) && to == math.Trunc(to) && from >= math.MinInt32 && from <= math.MaxInt32 && to >= math.MinInt32 && to <= math.MaxInt32 {
+			o := make([]int64, n)
+			for i := range o {
+				o[i] = int64(from + float64(i)*step)
+			}
+			return &IntegerVector{Data: o}, nil
+		}
 		o := make([]float64, n)
 		for i := range o {
 			o[i] = from + float64(i)*step

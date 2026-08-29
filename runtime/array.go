@@ -277,6 +277,7 @@ func (c *Context) arraySubset(op string, args []syntax.Argument, env *Environmen
 		return nil, fmt.Errorf("incorrect number of dimensions")
 	}
 	indices := make([][]int, len(dims))
+	dimnames, _ := Attributes(object)["dimnames"].(*List)
 	for axis := range dims {
 		a := args[axis+1]
 		if a.Value == nil {
@@ -287,7 +288,13 @@ func (c *Context) arraySubset(op string, args []syntax.Argument, env *Environmen
 		if e != nil {
 			return nil, e
 		}
-		indices[axis], e = subsetPositionsLength(dims[axis], iv)
+		var axisNames []string
+		if dimnames != nil && axis < len(dimnames.Data) {
+			if names, ok := dimnames.Data[axis].(*CharacterVector); ok {
+				axisNames = names.Data
+			}
+		}
+		indices[axis], e = subsetPositionsDimension(dims[axis], iv, axisNames)
 		if e != nil {
 			return nil, e
 		}
@@ -317,6 +324,13 @@ func (c *Context) arraySubset(op string, args []syntax.Argument, env *Environmen
 }
 func subsetPositionsLength(n int, index Value) ([]int, error) {
 	return subsetPositions(&DoubleVector{Data: make([]float64, n)}, index)
+}
+func subsetPositionsDimension(n int, index Value, names []string) ([]int, error) {
+	axis := &DoubleVector{Data: make([]float64, n)}
+	if len(names) > 0 {
+		axis.Attr = map[string]Value{"names": &CharacterVector{Data: append([]string(nil), names...)}}
+	}
+	return subsetPositions(axis, index)
 }
 func rangePositions(n int) []int {
 	o := make([]int, n)

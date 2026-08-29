@@ -153,7 +153,7 @@ func (p *Parser) expression(min int) (Expr, error) {
 		}
 		var right Expr
 		var e error
-		if t.Text == "$" || t.Text == "@" {
+		if t.Text == "$" || t.Text == "@" || t.Text == "::" || t.Text == ":::" {
 			r := p.current()
 			if r.Kind != Identifier && r.Kind != String {
 				return nil, p.errorf(r, "expected name after %s", t.Text)
@@ -180,6 +180,16 @@ func (p *Parser) expression(min int) (Expr, error) {
 			} else {
 				t.Text = "<<-"
 			}
+		}
+		if t.Text == "|>" {
+			call, ok := right.(*Call)
+			if !ok {
+				return nil, p.errorf(t, "pipe target must be a function call")
+			}
+			call.Arguments = append([]Argument{{Value: left, At: left.SourceSpan()}}, call.Arguments...)
+			call.At = span(left.SourceSpan(), call.SourceSpan())
+			left = call
+			continue
 		}
 		left = &Call{Function: &Symbol{Name: t.Text, At: t.At}, Arguments: []Argument{{Value: left, At: left.SourceSpan()}, {Value: right, At: right.SourceSpan()}}, At: span(left.SourceSpan(), right.SourceSpan())}
 	}

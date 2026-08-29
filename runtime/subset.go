@@ -195,6 +195,17 @@ func valueNames(v Value) []string {
 			return n.Data
 		}
 	}
+	// GNU R exposes the sole dimnames component of one-dimensional arrays
+	// (notably table objects) through names(). Matrices intentionally do not use
+	// this projection.
+	attrs := Attributes(v)
+	if dim, ok := attrs["dim"].(*IntegerVector); ok && len(dim.Data) == 1 {
+		if dimnames, ok := attrs["dimnames"].(*List); ok && len(dimnames.Data) == 1 {
+			if names, ok := dimnames.Data[0].(*CharacterVector); ok {
+				return names.Data
+			}
+		}
+	}
 	return nil
 }
 
@@ -239,9 +250,15 @@ func replacePositions(v Value, positions []int, replacement Value) (Value, error
 		return nil, err
 	}
 	if targetKind != v.Kind() {
+		attributes := Attributes(v)
 		v, err = CoerceTo(v, targetKind)
 		if err != nil {
 			return nil, err
+		}
+		for name, attribute := range attributes {
+			if err := setAttribute(v, name, cloneValue(attribute)); err != nil {
+				return nil, err
+			}
 		}
 	}
 	replacement, err = CoerceTo(replacement, targetKind)

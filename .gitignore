@@ -1,6 +1,8 @@
 # Rebuildable Go/compiler caches
 .gocache/
 .cache/go-build/
+.cache/
+dist/
 
 # Locally checked-out GNU R source; it is regenerated from the documented ref.
 .cache/r-source-ref/

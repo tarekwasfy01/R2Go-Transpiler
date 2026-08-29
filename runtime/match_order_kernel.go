@@ -179,10 +179,22 @@ func kernelOrderFamily(c *Context, frame *LoweringFrame) error {
 	if err != nil {
 		return err
 	}
+	if frame.Plan.CEntry == "do_sort" {
+		decreasing := false
+		if len(frame.Arguments) > 1 {
+			value, err := frameValue(c, frame, 1)
+			if err != nil {
+				return err
+			}
+			decreasing = scalarLogical(value)
+		}
+		frame.Result, err = sortValue(x, decreasing, nil)
+		return err
+	}
 	order := orderPermutation(x)
 	keys := vectorKeys(x)
 	switch frame.Plan.CEntry {
-	case "do_sort", "do_psort":
+	case "do_psort":
 		frame.Result = takePositions(x, order)
 	case "do_order":
 		out := &IntegerVector{Data: make([]int64, len(order))}

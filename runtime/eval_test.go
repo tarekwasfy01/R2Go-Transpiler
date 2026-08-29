@@ -202,11 +202,11 @@ func TestVectorListAndDollarReplacement(t *testing.T) {
 
 func TestMatrixColumnMajorIndexingAndDrop(t *testing.T) {
 	v, _ := evaluate(t, "m <- matrix(1:6, nrow = 2, ncol = 3)\nc(m[2, 1], m[1, 3], nrow(m), ncol(m))")
-	if v.String() != "2 5 2 3" {
+	if v.String() != "2L 5L 2L 3L" {
 		t.Fatalf("got %s", v.String())
 	}
 	v, _ = evaluate(t, "m <- matrix(1:6, 2, 3)\nm[, 2]")
-	if v.String() != "3 4" {
+	if v.String() != "3L 4L" {
 		t.Fatalf("got %s", v.String())
 	}
 }
@@ -224,7 +224,7 @@ func TestMatrixReplacementAndDimAssignment(t *testing.T) {
 		t.Fatalf("got %s", v.String())
 	}
 	v, _ = evaluate(t, "x <- 1:4\ndim(x) <- c(2L, 2L)\nc(x[2, 2], nrow(x))")
-	if v.String() != "4 2" {
+	if v.String() != "4L 2L" {
 		t.Fatalf("got %s", v.String())
 	}
 }
@@ -232,7 +232,7 @@ func TestMatrixReplacementAndDimAssignment(t *testing.T) {
 func TestDataFrameConstructionAndColumnAccess(t *testing.T) {
 	v, _ := evaluate(t, "d <- data.frame(id = 1:3, label = c('a', 'b', 'c'))\nc(nrow(d), ncol(d), d$id[2], is.data.frame(d))")
 	// Numeric coercion turns TRUE into 1 in c(), matching R's common type.
-	if v.String() != "3 2 2 1" {
+	if v.String() != "3L 2L 2L 1L" {
 		t.Fatalf("got %s", v.String())
 	}
 }
@@ -246,7 +246,7 @@ func TestDataFrameRowAndColumnSubsetting(t *testing.T) {
 
 func TestThreeDimensionalArray(t *testing.T) {
 	v, _ := evaluate(t, "a <- array(1:8, dim = c(2, 2, 2))\nc(a[2, 1, 2], dim(a))")
-	if v.String() != "6 2 2 2" {
+	if v.String() != "6L 2L 2L 2L" {
 		t.Fatalf("got %s", v.String())
 	}
 }

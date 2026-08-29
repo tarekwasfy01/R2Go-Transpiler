@@ -246,11 +246,32 @@ func tableValues(vals []Value, args []syntax.Argument) (Value, error) {
 		return nil, fmt.Errorf("multi-way table is not implemented")
 	}
 	counts := map[string]int64{}
-	for _, item := range elements(vals[0]) {
-		if scalarMissing(item) {
-			continue
+	if factor, ok := vals[0].(*IntegerVector); ok && hasClass(factor, "factor") {
+		levels, _ := Attributes(factor)["levels"].(*CharacterVector)
+		for i, code := range factor.Data {
+			if i < len(factor.Missing) && factor.Missing[i] {
+				continue
+			}
+			level := int(code) - 1
+			if levels != nil && level >= 0 && level < len(levels.Data) {
+				counts[levels.Data[level]]++
+			}
 		}
-		counts[scalarText(item)]++
+		// GNU R retains unused factor levels as zero-count table cells.
+		if levels != nil {
+			for _, level := range levels.Data {
+				if _, exists := counts[level]; !exists {
+					counts[level] = 0
+				}
+			}
+		}
+	} else {
+		for _, item := range elements(vals[0]) {
+			if scalarMissing(item) {
+				continue
+			}
+			counts[scalarText(item)]++
+		}
 	}
 	labels := make([]string, 0, len(counts))
 	for label := range counts {
@@ -579,6 +600,23 @@ func (c *Context) mathBuiltin(name string, args []syntax.Argument, env *Environm
 	if e != nil {
 		return nil, e
 	}
+	// GNU R's abs is type-stable for integer inputs, unlike the other Math
+	// operations which produce doubles. Apply this before numeric coercion has
+	// erased the original container kind.
+	if name == "abs" {
+		if integers, ok := v.(*IntegerVector); ok {
+			o := &IntegerVector{Data: append([]int64(nil), integers.Data...), Missing: append([]bool(nil), integers.Missing...)}
+			for i := range o.Data {
+				if i < len(o.Missing) && o.Missing[i] {
+					continue
+				}
+				if o.Data[i] < 0 {
+					o.Data[i] = -o.Data[i]
+				}
+			}
+			return inheritUnaryAttributes(o, v), nil
+		}
+	}
 	o := &DoubleVector{Data: make([]float64, len(x.Data)), Missing: append([]bool(nil), x.Missing...)}
 	digits := 0.0
 	if len(args) > 1 {
@@ -674,7 +712,7 @@ func (c *Context) mathBuiltin(name string, args []syntax.Argument, env *Environm
 			}
 		}
 	}
-	return o, nil
+	return inheritUnaryAttributes(o, v), nil
 }
 func digamma(x float64) float64 {
 	result := 0.0

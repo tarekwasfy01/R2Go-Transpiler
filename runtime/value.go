@@ -381,6 +381,8 @@ type Closure struct {
 	Parameters []syntax.Parameter
 	Body       syntax.Expr
 	Env        *Environment
+	NativeBody func(*Context, *Environment) (Value, error)
+	Defaults   map[string]func(*Context, *Environment) (Value, error)
 }
 
 type ConditionValue struct {
