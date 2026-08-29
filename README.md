@@ -12,7 +12,7 @@ The project explores how much **Base R** code can be parsed, executed, and trans
 
 **Windows executable:**
 
-[Download R2Go.exe](https://github.com/tarekwasfy01/R2Go-Transpiler/releases/download/r2go.exe/R2Go.exe)
+[Download R2Go.exe](https://github.com/tarekwasfy01/R2Go-Transpiler/releases/download/R2Go/R2Go.exe)
 
 Repository:
 
