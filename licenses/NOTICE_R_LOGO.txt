@@ -1,0 +1,23 @@
+R LOGO NOTICE
+=============
+
+The R logo is Copyright (c) 2016 The R Foundation.
+
+Official source and licensing information:
+https://www.r-project.org/logo/
+
+The R Foundation states that the R logo may be distributed under either:
+- Creative Commons Attribution-ShareAlike 4.0 International (CC BY-SA 4.0), or
+- GNU General Public License version 2 (GPL-2), at the distributor's option.
+
+r2go uses the CC BY-SA 4.0 option for the R logo.
+License URI:
+https://creativecommons.org/licenses/by-sa/4.0/
+
+Attribution:
+R logo (c) 2016 The R Foundation, used under CC BY-SA 4.0.
+
+Modification notice:
+For the r2go application artwork, the R logo may be resized and combined with
+other graphical/text elements. The resulting r2go artwork is not an official
+R Foundation product or endorsement.

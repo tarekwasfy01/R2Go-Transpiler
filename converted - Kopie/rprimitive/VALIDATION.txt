@@ -1,0 +1,12 @@
+VALIDATION
+
+- Source C batch files: 119
+- Unique translated entry functions: 119
+- Primitive mappings retained: 158
+- Generated batch Go files: 122 (3 platform-specific entries have Windows + Unix variants)
+- Untranslated AST expressions/statements: 0
+- C source files in output: 0
+- gofmt: passed
+- go test ./... (linux/amd64): passed
+- go vet ./...: passed
+- GOOS=windows GOARCH=amd64 go test -c: passed

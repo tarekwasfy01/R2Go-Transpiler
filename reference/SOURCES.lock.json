@@ -1,0 +1,41 @@
+{
+  "generated": "2026-08-29",
+  "gnu_r": {
+    "git_mirror": "https://github.com/wch/r-source",
+    "git_commit": "9deb2ebef8d0a2fe5cae965697ee4751af857bd1",
+    "svn_url": "https://svn.r-project.org/R/trunk/",
+    "svn_revision": 90452,
+    "version": "4.7.0 Under development (unstable)",
+    "verified_locally": true
+  },
+  "input_archives": [
+    {
+      "name": "pure-go-numerics.zip",
+      "bytes": 17073,
+      "sha256": "7BA9961802FE91A8ED765FB9A5D25128CA593E8963D12DA9DAC132560B8D61C6"
+    },
+    {
+      "name": "alternative-r-runtimes.zip",
+      "bytes": 16181,
+      "sha256": "CCE33E2778820C3D23938065F7043A27BA68DD57D213143B78AFE35312849BBC"
+    },
+    {
+      "name": "gnu-r-reference-build-kit.zip",
+      "bytes": 5502,
+      "sha256": "C360B8B4A2BCF562A69A0F768F8C9836E6F8C31FBE30BDFCA0B5AC5A638EAD9E"
+    },
+    {
+      "name": "r-api-semantics-inventory.zip",
+      "bytes": 16324,
+      "sha256": "9D41A49408D522B00569972567D52CA6B09EB9275769D9067A3ED54D2EFC5327"
+    }
+  ],
+  "materialized_inventory": {
+    "api_symbols": 723,
+    "primitives_builtins": 702,
+    "bytecode_opcodes": 129,
+    "parser_tokens": 63,
+    "sexp_types": 28,
+    "path": "reference/r-inventory-full"
+  }
+}

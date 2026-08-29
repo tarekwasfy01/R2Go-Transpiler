@@ -1,0 +1,25 @@
+{
+  "source_tree": ".cache\\r-source-ref",
+  "files": {
+    "api_symbols.csv": {
+      "bytes": 78543,
+      "sha256": "33ee28258e2a3c83dd4e75e26c07389ca0ff08123e9cbb65e011dbea5b873298"
+    },
+    "bytecode_opcodes.csv": {
+      "bytes": 3294,
+      "sha256": "054aaa351055dbe300ba22db952af447b77341f4b75bdf77469797b9eb2a65ef"
+    },
+    "parser_tokens.csv": {
+      "bytes": 1357,
+      "sha256": "9fd4d61b5da8c44a0401b07b6d0b5f56431cb2375748692ebed85f58964d3a92"
+    },
+    "primitives_builtins.csv": {
+      "bytes": 56055,
+      "sha256": "a7fdbfe4069a7f1f497665a6b84921ec8ca17f0851562866339a68d464c99eac"
+    },
+    "sexp_types.csv": {
+      "bytes": 904,
+      "sha256": "309661484e8b93df728ae6bc8cfaac3941a6fd2a1028dba03b983812cded9fc1"
+    }
+  }
+}

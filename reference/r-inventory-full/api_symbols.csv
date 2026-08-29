@@ -1,0 +1,724 @@
+kind,name,header,declaration
+function,DECLARE_METHOD_SETTER,src/include/R_ext/Altrep.h,"DECLARE_METHOD_SETTER(altrep, UnserializeEX) DECLARE_METHOD_SETTER(altrep, Unserialize) DECLARE_METHOD_SETTER(altrep, Serialized_state) DECLARE_METHOD_SETTER(altrep, DuplicateEX) DECLARE_METHOD_SETTER(altrep, Duplicate) DECLARE_METHOD_SETTER(altrep, Coerce) DECLARE_METHOD_SETTER(altrep, Inspect) DECLARE_METHOD_SETTER(altrep, Length) DECLARE_METHOD_SETTER(altvec, Dataptr) DECLARE_METHOD_SETTER(altvec, Dataptr_or_null) DECLARE_METHOD_SETTER(altvec, Extract_subset) DECLARE_METHOD_SETTER(altinteger, Elt) DECLARE_METHOD_SETTER(altinteger, Get_region) DECLARE_METHOD_SETTER(altinteger, Is_sorted) DECLARE_METHOD_SETTER(altinteger, No_NA) DECLARE_METHOD_SETTER(altinteger, Sum) DECLARE_METHOD_SETTER(altinteger, Min) DECLARE_METHOD_SETTER(altinteger, Max) DECLARE_METHOD_SETTER(altreal, Elt) DECLARE_METHOD_SETTER(altreal, Get_region) DECLARE_METHOD_SETTER(altreal, Is_sorted) DECLARE_METHOD_SETTER(altreal, No_NA) DECLARE_METHOD_SETTER(altreal, Sum) DECLARE_METHOD_SETTER(altreal, Min) DECLARE_METHOD_SETTER(altreal, Max) DECLARE_METHOD_SETTER(altlogical, Elt) DECLARE_METHOD_SETTER(altlogical, Get_region) DECLARE_METHOD_SETTER(altlogical, Is_sorted) DECLARE_METHOD_SETTER(altlogical, No_NA) DECLARE_METHOD_SETTER(altlogical, Sum) DECLARE_METHOD_SETTER(altraw, Elt) DECLARE_METHOD_SETTER(altraw, Get_region) DECLARE_METHOD_SETTER(altcomplex, Elt) DECLARE_METHOD_SETTER(altcomplex, Get_region) DECLARE_METHOD_SETTER(altstring, Elt) DECLARE_METHOD_SETTER(altstring, Set_elt) DECLARE_METHOD_SETTER(altstring, Is_sorted) DECLARE_METHOD_SETTER(altstring, No_NA) DECLARE_METHOD_SETTER(altlist, Elt) DECLARE_METHOD_SETTER(altlist, Set_elt) void *DATAPTR_RW(SEXP);"
+function,R_altrep_inherits,src/include/R_ext/Altrep.h,"Rboolean R_altrep_inherits(SEXP x, R_altrep_class_t);"
+function,R_make_altcomplex_class,src/include/R_ext/Altrep.h,"R_altrep_class_t R_make_altcomplex_class(const char *cname, const char *pname, DllInfo *info);"
+function,R_make_altinteger_class,src/include/R_ext/Altrep.h,"R_altrep_class_t R_make_altinteger_class(const char *cname, const char *pname, DllInfo *info);"
+function,R_make_altlist_class,src/include/R_ext/Altrep.h,"R_altrep_class_t R_make_altlist_class(const char *cname, const char *pname, DllInfo *info);"
+function,R_make_altlogical_class,src/include/R_ext/Altrep.h,"R_altrep_class_t R_make_altlogical_class(const char *cname, const char *pname, DllInfo *info);"
+function,R_make_altraw_class,src/include/R_ext/Altrep.h,"R_altrep_class_t R_make_altraw_class(const char *cname, const char *pname, DllInfo *info);"
+function,R_make_altreal_class,src/include/R_ext/Altrep.h,"R_altrep_class_t R_make_altreal_class(const char *cname, const char *pname, DllInfo *info);"
+function,R_make_altstring_class,src/include/R_ext/Altrep.h,"R_altrep_class_t R_make_altstring_class(const char *cname, const char *pname, DllInfo *info);"
+function,R_new_altrep,src/include/R_ext/Altrep.h,"SEXP R_new_altrep(R_altrep_class_t aclass, SEXP data1, SEXP data2);"
+function,F77_NAME,src/include/R_ext/Applic.h,"void F77_NAME(dqrls)(double *x, int *n, int *p, double *y, int *ny, double *tol, double *b, double *rsd, double *qty, int *k, int *jpvt, double *qraux, double *work);"
+function,R_pretty,src/include/R_ext/Applic.h,"double R_pretty(double *lo, double *up, int *ndiv, int min_n, double shrink_sml, const double high_u_fact[], int eps_correction, int return_bounds);"
+function,Rdqagi,src/include/R_ext/Applic.h,"void Rdqagi(integr_fn f, void *ex, double *bound, int *inf, double *epsabs, double *epsrel, double *result, double *abserr, int *neval, int *ier, int *limit, int *lenw, int *last, int *iwork, double *work);"
+function,Rdqags,src/include/R_ext/Applic.h,"void Rdqags(integr_fn f, void *ex, double *a, double *b, double *epsabs, double *epsrel, double *result, double *abserr, int *neval, int *ier, int *limit, int *lenw, int *last, int *iwork, double *work);"
+function,cgmin,src/include/R_ext/Applic.h,"void cgmin(int n, double *Bvec, double *X, double *Fmin, optimfn fn, optimgr gr, int *fail, double abstol, double intol, void *ex, int type, int trace, int *fncount, int *grcount, int maxit);"
+function,fdhess,src/include/R_ext/Applic.h,"void fdhess(int n, double *x, double fval, fcn_p fun, void *state, double *h, int nfd, double *step, double *f, int ndigit, double *typx);"
+function,findInterval,src/include/R_ext/Applic.h,"int findInterval(double *xt, int n, double x, Rboolean rightmost_closed,  Rboolean all_inside, int ilo, int *mflag);"
+function,lbfgsb,src/include/R_ext/Applic.h,"void lbfgsb(int n, int m, double *x, double *l, double *u, int *nbd, double *Fmin, optimfn fn, optimgr gr, int *fail, void *ex, double factr, double pgtol, int *fncount, int *grcount, int maxit, char *msg, int trace, int nREPORT);"
+function,nmmin,src/include/R_ext/Applic.h,"void nmmin(int n, double *Bvec, double *X, double *Fmin, optimfn fn, int *fail, double abstol, double intol, void *ex, double alpha, double bet, double gamm, int trace, int *fncount, int maxit);"
+function,optif9,src/include/R_ext/Applic.h,"void optif9(int nr, int n, double *x, fcn_p fcn, fcn_p d1fcn, d2fcn_p d2fcn, void *state, double *typsiz, double fscale, int method, int iexp, int *msg, int ndigit, int itnlim, int iagflg, int iahflg, double dlt, double gradtl, double stepmx, double steptl, double *xpls, double *fpls, double *gpls, int *itrmcd, double *a, double *wrk, int *itncnt);"
+function,samin,src/include/R_ext/Applic.h,"void samin(int n, double *pb, double *yb, optimfn fn, int maxit, int tmax, double ti, int trace, void *ex);"
+function,vmmin,src/include/R_ext/Applic.h,"void vmmin(int n, double *b, double *Fmin, optimfn fn, optimgr gr, int maxit, int trace, int *mask, double abstol, double reltol, int nREPORT, void *ex, int *fncount, int *grcount, int *fail);"
+function,R_IsNA,src/include/R_ext/Arith.h,int R_IsNA(double);
+function,R_IsNaN,src/include/R_ext/Arith.h,int R_IsNaN(double);
+function,R_finite,src/include/R_ext/Arith.h,int R_finite(double);
+function,R_isnancpp,src/include/R_ext/Arith.h,int R_isnancpp(double);
+variable,R_NaInt,src/include/R_ext/Arith.h,LibExtern int	 R_NaInt;
+variable,R_NaN,src/include/R_ext/Arith.h,"extern ""C"" { #else # include <math.h> #endif LibExtern double R_NaN;"
+variable,R_NaReal,src/include/R_ext/Arith.h,LibExtern double R_NaReal;
+variable,R_NegInf,src/include/R_ext/Arith.h,LibExtern double R_NegInf;
+variable,R_PosInf,src/include/R_ext/Arith.h,LibExtern double R_PosInf;
+function,F77_NAME,src/include/R_ext/BLAS.h,"BLAS_extern void F77_NAME(zspmv)(const char *uplo, const BLAS_INT *n, const BLAS_complex *alpha, const BLAS_complex *ap, const BLAS_complex *x, const BLAS_INT *incx, const BLAS_complex *beta, BLAS_complex *y, const BLAS_INT *incy FCLEN);"
+function,Rf_addTaskCallback,src/include/R_ext/Callbacks.h,"R_ToplevelCallbackEl* Rf_addTaskCallback(R_ToplevelCallback cb, void *data, void (*finalizer)(void *), const char *name, int *pos);"
+function,Rf_removeTaskCallbackByIndex,src/include/R_ext/Callbacks.h,"extern ""C"" { #endif Rboolean Rf_removeTaskCallbackByIndex(int id);"
+function,Rf_removeTaskCallbackByName,src/include/R_ext/Callbacks.h,Rboolean Rf_removeTaskCallbackByName(const char *name);
+function,void,src/include/R_ext/Callbacks.h,void (*finalizer)(void *data);
+variable,r,src/include/R_ext/Complex.h,"extern ""C"" { #endif # ifdef R_LEGACY_RCOMPLEX typedef struct { double r;"
+function,R_GetConnection,src/include/R_ext/Connections.h,Rconnection R_GetConnection(SEXP sConn);
+function,R_ReadConnection,src/include/R_ext/Connections.h,"size_t R_ReadConnection(Rconnection con, void *buf, size_t n);"
+function,R_WriteConnection,src/include/R_ext/Connections.h,"size_t R_WriteConnection(Rconnection con, void *buf, size_t n);"
+function,R_new_custom_connection,src/include/R_ext/Connections.h,"extern ""C"" { #endif SEXP   R_new_custom_connection(const char *description, const char *mode, const char *class_name, Rconnection *ptr);"
+function,Rboolean,src/include/R_ext/Connections.h,Rboolean (*open)(struct Rconn *);
+function,double,src/include/R_ext/Connections.h,"double (*seek)(struct Rconn *, double, int, int);"
+function,int,src/include/R_ext/Connections.h,int (*fflush)(struct Rconn *);
+function,size_t,src/include/R_ext/Connections.h,"size_t (*write)(const void *, size_t, size_t, struct Rconn *);"
+function,void,src/include/R_ext/Connections.h,void (*truncate)(struct Rconn *);
+function,R_ShowMessage,src/include/R_ext/Error.h,void R_ShowMessage(const char *s);
+function,Rf_error,src/include/R_ext/Error.h,"NORET void Rf_error(const char *, ...) R_PRINTF_FORMAT(1, 2);"
+function,Rf_warning,src/include/R_ext/Error.h,"void Rf_warning(const char *, ...) R_PRINTF_FORMAT(1,2);"
+function,UNIMPLEMENTED,src/include/R_ext/Error.h,NORET void UNIMPLEMENTED(const char *);
+function,WrongArgCount,src/include/R_ext/Error.h,NORET void WrongArgCount(const char *);
+function,elif,src/include/R_ext/Error.h,"extern ""C"" { #endif #if defined NORET #elif (defined(__STDC_VERSION__) && __STDC_VERSION__ >= 202301L) # define NORET [[noreturn]] #elif defined(__STDC_VERSION__) && __STDC_VERSION__ >= 201102L # define NORET _Noreturn #elif defined(__GNUC__) && __GNUC__ >= 3 # define NORET __attribute__((noreturn)) #else # define NORET #endif #ifdef  __cplusplus [[noreturn]] void Rf_error(const char *, ...) R_PRINTF_FORMAT(1, 2);"
+function,R_GetX11Image,src/include/R_ext/GetX11Image.h,"extern ""C"" { #endif Rboolean R_GetX11Image(int d, void *pximage, int *pwidth, int *pheight);"
+function,AdobeSymbol2utf8,src/include/R_ext/GraphicsDevice.h,"extern void *AdobeSymbol2utf8(char*out, const char *in, size_t nwork, Rboolean usePUA);"
+function,NewFrameConfirm,src/include/R_ext/GraphicsDevice.h,void NewFrameConfirm(pDevDesc);
+function,NoDevices,src/include/R_ext/GraphicsDevice.h,int NoDevices(void);
+function,NumDevices,src/include/R_ext/GraphicsDevice.h,int NumDevices(void);
+function,R_CheckDeviceAvailable,src/include/R_ext/GraphicsDevice.h,void R_CheckDeviceAvailable(void);
+function,R_CheckDeviceAvailableBool,src/include/R_ext/GraphicsDevice.h,Rboolean R_CheckDeviceAvailableBool(void);
+function,Rboolean,src/include/R_ext/GraphicsDevice.h,Rboolean (*newFrameConfirm)();
+function,Rf_onintr,src/include/R_ext/GraphicsDevice.h,extern void Rf_onintr(void);
+function,Rf_ucstoutf8,src/include/R_ext/GraphicsDevice.h,"extern size_t Rf_ucstoutf8(char *s, const unsigned int c);"
+function,SEXP,src/include/R_ext/GraphicsDevice.h,SEXP (*capabilities)();
+function,curDevice,src/include/R_ext/GraphicsDevice.h,int curDevice(void);
+function,doIdle,src/include/R_ext/GraphicsDevice.h,void doIdle(pDevDesc dd);
+function,doKeybd,src/include/R_ext/GraphicsDevice.h,"void doKeybd(pDevDesc dd, R_KeyName rkey, const char *keyname);"
+function,doMouseEvent,src/include/R_ext/GraphicsDevice.h,"void doMouseEvent(pDevDesc dd, R_MouseEvent event, int buttons, double x, double y);"
+function,doesIdle,src/include/R_ext/GraphicsDevice.h,Rboolean doesIdle(pDevDesc dd);
+function,double,src/include/R_ext/GraphicsDevice.h,double (*strWidthUTF8)();
+function,int,src/include/R_ext/GraphicsDevice.h,int (*holdflush)();
+function,killDevice,src/include/R_ext/GraphicsDevice.h,void killDevice(int);
+function,ndevNumber,src/include/R_ext/GraphicsDevice.h,int ndevNumber(pDevDesc );
+function,nextDevice,src/include/R_ext/GraphicsDevice.h,int nextDevice(int);
+function,prevDevice,src/include/R_ext/GraphicsDevice.h,int prevDevice(int);
+function,selectDevice,src/include/R_ext/GraphicsDevice.h,int selectDevice(int);
+function,utf8ToLatin1AdobeSymbol2utf8,src/include/R_ext/GraphicsDevice.h,"const char* utf8ToLatin1AdobeSymbol2utf8(const char *in, Rboolean usePUA);"
+function,utf8Toutf8NoPUA,src/include/R_ext/GraphicsDevice.h,const char* utf8Toutf8NoPUA(const char *in);
+function,utf8toAdobeSymbol,src/include/R_ext/GraphicsDevice.h,"extern int utf8toAdobeSymbol(char* out, const char *in);"
+function,void,src/include/R_ext/GraphicsDevice.h,void (*glyph)();
+variable,DevDesc,src/include/R_ext/GraphicsDevice.h,"extern ""C"" { #endif typedef struct _DevDesc DevDesc;"
+variable,R_interrupts_pending,src/include/R_ext/GraphicsDevice.h,LibExtern int R_interrupts_pending;
+variable,R_interrupts_suspended,src/include/R_ext/GraphicsDevice.h,LibExtern Rboolean R_interrupts_suspended;
+variable,mbcslocale,src/include/R_ext/GraphicsDevice.h,LibExtern Rboolean mbcslocale;
+function,CreateAtVector,src/include/R_ext/GraphicsEngine.h,"SEXP CreateAtVector(double axp[], const double usr[], int nint, Rboolean logflag);"
+function,GAxisPars,src/include/R_ext/GraphicsEngine.h,"void GAxisPars(double *min, double *max, int *n, Rboolean log, int axis);"
+function,GECap,src/include/R_ext/GraphicsEngine.h,SEXP GECap(pGEDevDesc dd);
+function,GECircle,src/include/R_ext/GraphicsEngine.h,"void GECircle(double x, double y, double radius, const pGEcontext gc, pGEDevDesc dd);"
+function,GEExpressionHeight,src/include/R_ext/GraphicsEngine.h,"double GEExpressionHeight(SEXP expr, const pGEcontext gc, pGEDevDesc dd);"
+function,GEExpressionMetric,src/include/R_ext/GraphicsEngine.h,"void GEExpressionMetric(SEXP expr, const pGEcontext gc, double *ascent, double *descent, double *width, pGEDevDesc dd);"
+function,GEExpressionWidth,src/include/R_ext/GraphicsEngine.h,"double GEExpressionWidth(SEXP expr, const pGEcontext gc, pGEDevDesc dd);"
+function,GEFill,src/include/R_ext/GraphicsEngine.h,"void GEFill(SEXP path, int rule, const pGEcontext gc, pGEDevDesc dd);"
+function,GEFillStroke,src/include/R_ext/GraphicsEngine.h,"void GEFillStroke(SEXP path, int rule, const pGEcontext gc, pGEDevDesc dd);"
+function,GEGlyph,src/include/R_ext/GraphicsEngine.h,"void GEGlyph(int n, int *glyphs, double *x, double *y, SEXP font, double size, int colour, double rot, pGEDevDesc dd);"
+function,GELine,src/include/R_ext/GraphicsEngine.h,"void GELine(double x1, double y1, double x2, double y2, const pGEcontext gc, pGEDevDesc dd);"
+function,GEMathText,src/include/R_ext/GraphicsEngine.h,"void GEMathText(double x, double y, SEXP expr, double xc, double yc, double rot, const pGEcontext gc, pGEDevDesc dd);"
+function,GEMetricInfo,src/include/R_ext/GraphicsEngine.h,"void GEMetricInfo(int c, const pGEcontext gc, double *ascent, double *descent, double *width, pGEDevDesc dd);"
+function,GEMode,src/include/R_ext/GraphicsEngine.h,"void GEMode(int mode, pGEDevDesc dd);"
+function,GENewPage,src/include/R_ext/GraphicsEngine.h,"void GENewPage(const pGEcontext gc, pGEDevDesc dd);"
+function,GEPath,src/include/R_ext/GraphicsEngine.h,"void GEPath(double *x, double *y, int npoly, int *nper, Rboolean winding, const pGEcontext gc, pGEDevDesc dd);"
+function,GEPolygon,src/include/R_ext/GraphicsEngine.h,"void GEPolygon(int n, double *x, double *y, const pGEcontext gc, pGEDevDesc dd);"
+function,GEPolyline,src/include/R_ext/GraphicsEngine.h,"void GEPolyline(int n, double *x, double *y, const pGEcontext gc, pGEDevDesc dd);"
+function,GEPretty,src/include/R_ext/GraphicsEngine.h,"void GEPretty(double *lo, double *up, int *ndiv);"
+function,GERaster,src/include/R_ext/GraphicsEngine.h,"void GERaster(unsigned int *raster, int w, int h, double x, double y, double width, double height, double angle, Rboolean interpolate, const pGEcontext gc, pGEDevDesc dd);"
+function,GERect,src/include/R_ext/GraphicsEngine.h,"void GERect(double x0, double y0, double x1, double y1, const pGEcontext gc, pGEDevDesc dd);"
+function,GESetClip,src/include/R_ext/GraphicsEngine.h,"void GESetClip(double x1, double y1, double x2, double y2, pGEDevDesc dd);"
+function,GEStrHeight,src/include/R_ext/GraphicsEngine.h,"double GEStrHeight(const char *str, cetype_t enc, const pGEcontext gc, pGEDevDesc dd);"
+function,GEStrMetric,src/include/R_ext/GraphicsEngine.h,"void GEStrMetric(const char *str, cetype_t enc, const pGEcontext gc, double *ascent, double *descent, double *width, pGEDevDesc dd);"
+function,GEStrWidth,src/include/R_ext/GraphicsEngine.h,"double GEStrWidth(const char *str, cetype_t enc, const pGEcontext gc, pGEDevDesc dd);"
+function,GEStroke,src/include/R_ext/GraphicsEngine.h,"void GEStroke(SEXP path, const pGEcontext gc, pGEDevDesc dd);"
+function,GESymbol,src/include/R_ext/GraphicsEngine.h,"void GESymbol(double x, double y, int pch, double size, const pGEcontext gc, pGEDevDesc dd);"
+function,GEText,src/include/R_ext/GraphicsEngine.h,"void GEText(double x, double y, const char * const str, cetype_t enc, double xc, double yc, double rot, const pGEcontext gc, pGEDevDesc dd);"
+function,GEXspline,src/include/R_ext/GraphicsEngine.h,"SEXP GEXspline(int n, double *x, double *y, double *s, Rboolean open, Rboolean repEnds, Rboolean draw, const pGEcontext gc, pGEDevDesc dd);"
+function,GE_LENDget,src/include/R_ext/GraphicsEngine.h,SEXP GE_LENDget(R_GE_lineend lend);
+function,GE_LENDpar,src/include/R_ext/GraphicsEngine.h,"R_GE_lineend GE_LENDpar(SEXP value, int ind);"
+function,GE_LJOINget,src/include/R_ext/GraphicsEngine.h,SEXP GE_LJOINget(R_GE_linejoin ljoin);
+function,GE_LJOINpar,src/include/R_ext/GraphicsEngine.h,"R_GE_linejoin GE_LJOINpar(SEXP value, int ind);"
+function,GE_LTYget,src/include/R_ext/GraphicsEngine.h,SEXP GE_LTYget(unsigned int);
+function,GE_LTYpar,src/include/R_ext/GraphicsEngine.h,"unsigned int GE_LTYpar(SEXP, int);"
+function,GEaddDevice,src/include/R_ext/GraphicsEngine.h,void GEaddDevice(pGEDevDesc);
+function,GEaddDevice2,src/include/R_ext/GraphicsEngine.h,"void GEaddDevice2(pGEDevDesc, const char *);"
+function,GEaddDevice2f,src/include/R_ext/GraphicsEngine.h,"void GEaddDevice2f(pGEDevDesc, const char *, const char *);"
+function,GEcheckState,src/include/R_ext/GraphicsEngine.h,Rboolean GEcheckState(pGEDevDesc dd);
+function,GEcontourLines,src/include/R_ext/GraphicsEngine.h,"SEXP GEcontourLines(double *x, int nx, double *y, int ny, double *z, double *levels, int nl);"
+function,GEcopyDisplayList,src/include/R_ext/GraphicsEngine.h,void GEcopyDisplayList(int fromDevice);
+function,GEcreateDD,src/include/R_ext/GraphicsEngine.h,pDevDesc GEcreateDD(void);
+function,GEcreateDevDesc,src/include/R_ext/GraphicsEngine.h,pGEDevDesc GEcreateDevDesc(pDevDesc dev);
+function,GEcreateSnapshot,src/include/R_ext/GraphicsEngine.h,SEXP GEcreateSnapshot(pGEDevDesc dd);
+function,GEcurrentDevice,src/include/R_ext/GraphicsEngine.h,pGEDevDesc GEcurrentDevice(void);
+function,GEdestroyDevDesc,src/include/R_ext/GraphicsEngine.h,void GEdestroyDevDesc(pGEDevDesc dd);
+function,GEdeviceDirty,src/include/R_ext/GraphicsEngine.h,Rboolean GEdeviceDirty(pGEDevDesc dd);
+function,GEdeviceNumber,src/include/R_ext/GraphicsEngine.h,int GEdeviceNumber(pGEDevDesc);
+function,GEdirtyDevice,src/include/R_ext/GraphicsEngine.h,void GEdirtyDevice(pGEDevDesc dd);
+function,GEfreeDD,src/include/R_ext/GraphicsEngine.h,void GEfreeDD(pDevDesc dd);
+function,GEgetDevice,src/include/R_ext/GraphicsEngine.h,pGEDevDesc GEgetDevice(int);
+function,GEhandleEvent,src/include/R_ext/GraphicsEngine.h,"SEXP GEhandleEvent(GEevent event, pDevDesc dev, SEXP data);"
+function,GEinitDisplayList,src/include/R_ext/GraphicsEngine.h,void GEinitDisplayList(pGEDevDesc dd);
+function,GEkillDevice,src/include/R_ext/GraphicsEngine.h,void GEkillDevice(pGEDevDesc);
+function,GEonExit,src/include/R_ext/GraphicsEngine.h,void GEonExit(void);
+function,GEplayDisplayList,src/include/R_ext/GraphicsEngine.h,void GEplayDisplayList(pGEDevDesc dd);
+function,GEplaySnapshot,src/include/R_ext/GraphicsEngine.h,"void GEplaySnapshot(SEXP snapshot, pGEDevDesc dd);"
+function,GErecordGraphicOperation,src/include/R_ext/GraphicsEngine.h,"void GErecordGraphicOperation(SEXP op, SEXP args, pGEDevDesc dd);"
+function,GErecording,src/include/R_ext/GraphicsEngine.h,"Rboolean GErecording(SEXP call, pGEDevDesc dd);"
+function,GEregisterSystem,src/include/R_ext/GraphicsEngine.h,"void GEregisterSystem(GEcallback callback, int *systemRegisterIndex);"
+function,GEregisterWithDevice,src/include/R_ext/GraphicsEngine.h,void GEregisterWithDevice(pGEDevDesc dd);
+function,GEstring_to_pch,src/include/R_ext/GraphicsEngine.h,int GEstring_to_pch(SEXP pch);
+function,GEsystemState,src/include/R_ext/GraphicsEngine.h,"void *GEsystemState(pGEDevDesc dd, int index);"
+function,GEunregisterSystem,src/include/R_ext/GraphicsEngine.h,void GEunregisterSystem(int registerIndex);
+function,RGBpar,src/include/R_ext/GraphicsEngine.h,"rcolor RGBpar(SEXP, int);"
+function,RGBpar3,src/include/R_ext/GraphicsEngine.h,"rcolor RGBpar3(SEXP, int, rcolor);"
+function,R_GE_checkVersionOrDie,src/include/R_ext/GraphicsEngine.h,void R_GE_checkVersionOrDie(int version);
+function,R_GE_clipPathFillRule,src/include/R_ext/GraphicsEngine.h,int R_GE_clipPathFillRule(SEXP path);
+function,R_GE_getVersion,src/include/R_ext/GraphicsEngine.h,"extern ""C"" { #endif #define R_GE_definitions 13 #define R_GE_deviceClip  14 #define R_GE_group       15 #define R_GE_glyphs      16 #define R_GE_fontVar     17 #define R_GE_version R_GE_fontVar int R_GE_getVersion(void);"
+function,R_GE_glyphColour,src/include/R_ext/GraphicsEngine.h,SEXP R_GE_glyphColour(SEXP glyphs);
+function,R_GE_glyphFont,src/include/R_ext/GraphicsEngine.h,SEXP R_GE_glyphFont(SEXP glyphs);
+function,R_GE_glyphFontFamily,src/include/R_ext/GraphicsEngine.h,const char* R_GE_glyphFontFamily(SEXP glyphFont);
+function,R_GE_glyphFontFile,src/include/R_ext/GraphicsEngine.h,const char* R_GE_glyphFontFile(SEXP glyphFont);
+function,R_GE_glyphFontIndex,src/include/R_ext/GraphicsEngine.h,int R_GE_glyphFontIndex(SEXP glyphFont);
+function,R_GE_glyphFontNumVar,src/include/R_ext/GraphicsEngine.h,int R_GE_glyphFontNumVar(SEXP glyphFont);
+function,R_GE_glyphFontPSname,src/include/R_ext/GraphicsEngine.h,const char* R_GE_glyphFontPSname(SEXP glyphFont);
+function,R_GE_glyphFontStyle,src/include/R_ext/GraphicsEngine.h,int R_GE_glyphFontStyle(SEXP glyphFont);
+function,R_GE_glyphFontVarAxis,src/include/R_ext/GraphicsEngine.h,"const char* R_GE_glyphFontVarAxis(SEXP glyphFont, int index);"
+function,R_GE_glyphFontVarFormatted,src/include/R_ext/GraphicsEngine.h,"const char* R_GE_glyphFontVarFormatted(SEXP glyphFont, int index);"
+function,R_GE_glyphFontVarValue,src/include/R_ext/GraphicsEngine.h,"double R_GE_glyphFontVarValue(SEXP glyphFont, int index);"
+function,R_GE_glyphFontWeight,src/include/R_ext/GraphicsEngine.h,double R_GE_glyphFontWeight(SEXP glyphFont);
+function,R_GE_glyphID,src/include/R_ext/GraphicsEngine.h,SEXP R_GE_glyphID(SEXP glyphs);
+function,R_GE_glyphInfoFonts,src/include/R_ext/GraphicsEngine.h,SEXP R_GE_glyphInfoFonts(SEXP glyphInfo);
+function,R_GE_glyphInfoGlyphs,src/include/R_ext/GraphicsEngine.h,SEXP R_GE_glyphInfoGlyphs(SEXP glyphInfo);
+function,R_GE_glyphRotation,src/include/R_ext/GraphicsEngine.h,SEXP R_GE_glyphRotation(SEXP glyphs);
+function,R_GE_glyphSize,src/include/R_ext/GraphicsEngine.h,SEXP R_GE_glyphSize(SEXP glyphs);
+function,R_GE_glyphX,src/include/R_ext/GraphicsEngine.h,SEXP R_GE_glyphX(SEXP glyphs);
+function,R_GE_glyphY,src/include/R_ext/GraphicsEngine.h,SEXP R_GE_glyphY(SEXP glyphs);
+function,R_GE_hasGlyphRotation,src/include/R_ext/GraphicsEngine.h,Rboolean R_GE_hasGlyphRotation(SEXP glyphs);
+function,R_GE_isPattern,src/include/R_ext/GraphicsEngine.h,Rboolean R_GE_isPattern(SEXP x);
+function,R_GE_linearGradientColour,src/include/R_ext/GraphicsEngine.h,"rcolor R_GE_linearGradientColour(SEXP pattern, int i);"
+function,R_GE_linearGradientExtend,src/include/R_ext/GraphicsEngine.h,int R_GE_linearGradientExtend(SEXP pattern);
+function,R_GE_linearGradientNumStops,src/include/R_ext/GraphicsEngine.h,int R_GE_linearGradientNumStops(SEXP pattern);
+function,R_GE_linearGradientStop,src/include/R_ext/GraphicsEngine.h,"double R_GE_linearGradientStop(SEXP pattern, int i);"
+function,R_GE_linearGradientX1,src/include/R_ext/GraphicsEngine.h,double R_GE_linearGradientX1(SEXP pattern);
+function,R_GE_linearGradientX2,src/include/R_ext/GraphicsEngine.h,double R_GE_linearGradientX2(SEXP pattern);
+function,R_GE_linearGradientY1,src/include/R_ext/GraphicsEngine.h,double R_GE_linearGradientY1(SEXP pattern);
+function,R_GE_linearGradientY2,src/include/R_ext/GraphicsEngine.h,double R_GE_linearGradientY2(SEXP pattern);
+function,R_GE_maskType,src/include/R_ext/GraphicsEngine.h,int R_GE_maskType(SEXP mask);
+function,R_GE_patternType,src/include/R_ext/GraphicsEngine.h,int R_GE_patternType(SEXP pattern);
+function,R_GE_radialGradientCX1,src/include/R_ext/GraphicsEngine.h,double R_GE_radialGradientCX1(SEXP pattern);
+function,R_GE_radialGradientCX2,src/include/R_ext/GraphicsEngine.h,double R_GE_radialGradientCX2(SEXP pattern);
+function,R_GE_radialGradientCY1,src/include/R_ext/GraphicsEngine.h,double R_GE_radialGradientCY1(SEXP pattern);
+function,R_GE_radialGradientCY2,src/include/R_ext/GraphicsEngine.h,double R_GE_radialGradientCY2(SEXP pattern);
+function,R_GE_radialGradientColour,src/include/R_ext/GraphicsEngine.h,"rcolor R_GE_radialGradientColour(SEXP pattern, int i);"
+function,R_GE_radialGradientExtend,src/include/R_ext/GraphicsEngine.h,int R_GE_radialGradientExtend(SEXP pattern);
+function,R_GE_radialGradientNumStops,src/include/R_ext/GraphicsEngine.h,int R_GE_radialGradientNumStops(SEXP pattern);
+function,R_GE_radialGradientR1,src/include/R_ext/GraphicsEngine.h,double R_GE_radialGradientR1(SEXP pattern);
+function,R_GE_radialGradientR2,src/include/R_ext/GraphicsEngine.h,double R_GE_radialGradientR2(SEXP pattern);
+function,R_GE_radialGradientStop,src/include/R_ext/GraphicsEngine.h,"double R_GE_radialGradientStop(SEXP pattern, int i);"
+function,R_GE_rasterInterpolate,src/include/R_ext/GraphicsEngine.h,"void R_GE_rasterInterpolate(unsigned int *sraster, int sw, int sh, unsigned int *draster, int dw, int dh);"
+function,R_GE_rasterResizeForRotation,src/include/R_ext/GraphicsEngine.h,"void R_GE_rasterResizeForRotation(unsigned int *sraster, int w, int h, unsigned int *newRaster, int wnew, int hnew, const pGEcontext gc);"
+function,R_GE_rasterRotate,src/include/R_ext/GraphicsEngine.h,"void R_GE_rasterRotate(unsigned int *sraster, int w, int h, double angle, unsigned int *draster, const pGEcontext gc, Rboolean perPixelAlpha);"
+function,R_GE_rasterRotatedOffset,src/include/R_ext/GraphicsEngine.h,"void R_GE_rasterRotatedOffset(int w, int h, double angle, int botleft, double *xoff, double *yoff);"
+function,R_GE_rasterRotatedSize,src/include/R_ext/GraphicsEngine.h,"void R_GE_rasterRotatedSize(int w, int h, double angle, int *wnew, int *hnew);"
+function,R_GE_rasterScale,src/include/R_ext/GraphicsEngine.h,"void R_GE_rasterScale(unsigned int *sraster, int sw, int sh, unsigned int *draster, int dw, int dh);"
+function,R_GE_str2col,src/include/R_ext/GraphicsEngine.h,rcolor R_GE_str2col(const char *s);
+function,R_GE_tilingPatternExtend,src/include/R_ext/GraphicsEngine.h,int R_GE_tilingPatternExtend(SEXP pattern);
+function,R_GE_tilingPatternFunction,src/include/R_ext/GraphicsEngine.h,SEXP R_GE_tilingPatternFunction(SEXP pattern);
+function,R_GE_tilingPatternHeight,src/include/R_ext/GraphicsEngine.h,double R_GE_tilingPatternHeight(SEXP pattern);
+function,R_GE_tilingPatternWidth,src/include/R_ext/GraphicsEngine.h,double R_GE_tilingPatternWidth(SEXP pattern);
+function,R_GE_tilingPatternX,src/include/R_ext/GraphicsEngine.h,double R_GE_tilingPatternX(SEXP pattern);
+function,R_GE_tilingPatternY,src/include/R_ext/GraphicsEngine.h,double R_GE_tilingPatternY(SEXP pattern);
+function,Rf_eval_with_gd,src/include/R_ext/GraphicsEngine.h,"SEXP Rf_eval_with_gd(SEXP, SEXP, pGEDevDesc);"
+function,col2name,src/include/R_ext/GraphicsEngine.h,const char *col2name(rcolor col);
+function,desc2GEDesc,src/include/R_ext/GraphicsEngine.h,pGEDevDesc desc2GEDesc(pDevDesc dd);
+function,fromDeviceHeight,src/include/R_ext/GraphicsEngine.h,"double fromDeviceHeight(double value, GEUnit to, pGEDevDesc dd);"
+function,fromDeviceWidth,src/include/R_ext/GraphicsEngine.h,"double fromDeviceWidth(double value, GEUnit to, pGEDevDesc dd);"
+function,fromDeviceX,src/include/R_ext/GraphicsEngine.h,"double fromDeviceX(double value, GEUnit to, pGEDevDesc dd);"
+function,fromDeviceY,src/include/R_ext/GraphicsEngine.h,"double fromDeviceY(double value, GEUnit to, pGEDevDesc dd);"
+function,toDeviceHeight,src/include/R_ext/GraphicsEngine.h,"double toDeviceHeight(double value, GEUnit from, pGEDevDesc dd);"
+function,toDeviceWidth,src/include/R_ext/GraphicsEngine.h,"double toDeviceWidth(double value, GEUnit from, pGEDevDesc dd);"
+function,toDeviceX,src/include/R_ext/GraphicsEngine.h,"double toDeviceX(double value, GEUnit from, pGEDevDesc dd);"
+function,toDeviceY,src/include/R_ext/GraphicsEngine.h,"double toDeviceY(double value, GEUnit from, pGEDevDesc dd);"
+variable,GEDevDesc,src/include/R_ext/GraphicsEngine.h,"extern ""C"" { #endif typedef struct _GEDevDesc GEDevDesc;"
+function,F77_NAME,src/include/R_ext/Lapack.h,"La_extern void F77_NAME(zlahrd)(La_INT *n, La_INT *k, La_INT *nb, La_complex *a, La_INT *lda, La_complex *tau, La_complex *t, La_INT *ldt, La_complex *y, La_INT *ldy);"
+function,F77_NAME,src/include/R_ext/Linpack.h,"extern void F77_NAME(dspsl)(double*, int*, int*, double*);"
+variable,R_max_num_math_threads,src/include/R_ext/MathThreads.h,LibExtern int R_max_num_math_threads;
+variable,R_num_math_threads,src/include/R_ext/MathThreads.h,"extern ""C"" { #endif #ifdef USE_MATH_THREADS LibExtern int R_num_math_threads;"
+function,R_alloc,src/include/R_ext/Memory.h,"char*	R_alloc(R_SIZE_T, int);"
+function,R_allocLD,src/include/R_ext/Memory.h,long double *R_allocLD(R_SIZE_T nelem);
+function,R_calloc_gc,src/include/R_ext/Memory.h,"void *  R_calloc_gc(size_t, size_t);"
+function,R_gc,src/include/R_ext/Memory.h,void	R_gc(void);
+function,R_gc_running,src/include/R_ext/Memory.h,int	R_gc_running(void);
+function,R_malloc_gc,src/include/R_ext/Memory.h,void *  R_malloc_gc(size_t);
+function,R_realloc_gc,src/include/R_ext/Memory.h,"void *  R_realloc_gc(void *, size_t);"
+function,S_alloc,src/include/R_ext/Memory.h,"char*	S_alloc(long, int);"
+function,S_realloc,src/include/R_ext/Memory.h,"char*	S_realloc(char *, long, long, int);"
+function,vmaxget,src/include/R_ext/Memory.h,"extern ""C"" { #endif void*	vmaxget(void);"
+function,vmaxset,src/include/R_ext/Memory.h,void	vmaxset(const void *);
+variable,R_ObjectTable,src/include/R_ext/ObjectTable.h,"extern ""C"" { #endif typedef struct  _R_ObjectTable R_ObjectTable;"
+function,R_ParseVector,src/include/R_ext/Parse.h,"SEXP R_ParseVector(SEXP, int, ParseStatus *, SEXP);"
+variable,PARSE_ERROR,src/include/R_ext/Parse.h,"extern ""C"" { #endif typedef enum { PARSE_NULL, PARSE_OK, PARSE_INCOMPLETE, PARSE_ERROR, PARSE_EOF } ParseStatus;"
+variable,PARSE_INCOMPLETE,src/include/R_ext/Parse.h,"extern ""C"" { #endif typedef enum { PARSE_NULL, PARSE_OK, PARSE_INCOMPLETE, PARSE_ERROR, PARSE_EOF } ParseStatus;"
+variable,PARSE_NULL,src/include/R_ext/Parse.h,"extern ""C"" { #endif typedef enum { PARSE_NULL, PARSE_OK, PARSE_INCOMPLETE, PARSE_ERROR, PARSE_EOF } ParseStatus;"
+variable,PARSE_OK,src/include/R_ext/Parse.h,"extern ""C"" { #endif typedef enum { PARSE_NULL, PARSE_OK, PARSE_INCOMPLETE, PARSE_ERROR, PARSE_EOF } ParseStatus;"
+variable,ParseStatus,src/include/R_ext/Parse.h,"extern ""C"" { #endif typedef enum { PARSE_NULL, PARSE_OK, PARSE_INCOMPLETE, PARSE_ERROR, PARSE_EOF } ParseStatus;"
+function,REprintf,src/include/R_ext/Print.h,"void REprintf(const char *, ...) R_PRINTF_FORMAT(1, 2);"
+function,REvprintf,src/include/R_ext/Print.h,"void REvprintf(const char *, R_VA_LIST) R_PRINTF_FORMAT(1, 0);"
+function,Rvprintf,src/include/R_ext/Print.h,"void Rvprintf(const char *, R_VA_LIST) R_PRINTF_FORMAT(1, 0);"
+function,defined,src/include/R_ext/Print.h,"extern ""C"" { #else # include <stdarg.h> # define R_VA_LIST va_list #endif #ifdef __GNUC__ # ifdef _WIN32 #  if defined(_UCRT) || ((__MSVCRT_VERSION__ >= 0x1400) || (__MSVCRT_VERSION__ >= 0xE00 && __MSVCRT_VERSION__ < 0x1000)) #   if defined(__clang__) #    define R_PRINTF_FORMAT(M,N) __attribute__ ((format (printf, M, N))) #   else #    define R_PRINTF_FORMAT(M,N) __attribute__ ((format (gnu_printf, M, N))) #   endif #  else #   define R_PRINTF_FORMAT(M,N) #  endif # else #  define R_PRINTF_FORMAT(M,N) __attribute__ ((format (printf, M, N))) # endif #else # define R_PRINTF_FORMAT(M,N) #endif void Rprintf(const char *, ...) R_PRINTF_FORMAT(1, 2);"
+function,CGContextRef,src/include/R_ext/QuartzDevice.h,"CGContextRef (*getCGContext)(QuartzDesc_t dev, void*userInfo);"
+function,QuartzDesc_t,src/include/R_ext/QuartzDevice.h,"extern #endif QuartzDesc_t (*ptr_QuartzBackend)(void *dd, QuartzFunctions_t *fn, QuartzParameters_t *par);"
+function,QuartzDevice_Create,src/include/R_ext/QuartzDevice.h,"QuartzDesc_t QuartzDevice_Create(void *dd, QuartzBackend_t* def);"
+function,Quartz_C,src/include/R_ext/QuartzDevice.h,"QuartzDesc_t Quartz_C(QuartzParameters_t *par, quartz_create_fn_t q_create, int *errorCode);"
+function,double,src/include/R_ext/QuartzDevice.h,double (*GetPointSize)(QuartzDesc_t desc);
+function,getQuartzFunctions,src/include/R_ext/QuartzDevice.h,QuartzFunctions_t *getQuartzFunctions(void);
+function,int,src/include/R_ext/QuartzDevice.h,int    (*GetBackground)(QuartzDesc_t desc);
+function,void,src/include/R_ext/QuartzDevice.h,void   (*Activate)(QuartzDesc_t desc);
+variable,CGContextRef,src/include/R_ext/QuartzDevice.h,"extern ""C"" { #endif #ifndef HAVE_AQUA typedef void* CGContextRef;"
+function,R_chk_calloc,src/include/R_ext/RS.h,"extern ""C"" { #endif extern void *R_chk_calloc(R_SIZE_T, R_SIZE_T);"
+function,R_chk_free,src/include/R_ext/RS.h,extern void R_chk_free(void *);
+function,R_chk_memcpy,src/include/R_ext/RS.h,"extern void *R_chk_memcpy(void *, const void *, R_SIZE_T);"
+function,R_chk_memset,src/include/R_ext/RS.h,"extern void *R_chk_memset(void *, int, R_SIZE_T);"
+function,R_chk_realloc,src/include/R_ext/RS.h,"extern void *R_chk_realloc(void *, R_SIZE_T);"
+function,R_DefCallbacks,src/include/R_ext/RStartup.h,"void R_DefCallbacks(Rstart, int);"
+function,R_DefParams,src/include/R_ext/RStartup.h,void R_DefParams(Rstart);
+function,R_DefParamsEx,src/include/R_ext/RStartup.h,"int R_DefParamsEx(Rstart, int);"
+function,R_GetSaveAction,src/include/R_ext/RStartup.h,SA_TYPE R_GetSaveAction(void);
+function,R_SetParams,src/include/R_ext/RStartup.h,void R_SetParams(Rstart);
+function,R_SetSaveAction,src/include/R_ext/RStartup.h,SA_TYPE R_SetSaveAction(SA_TYPE newval);
+function,R_SetWin32,src/include/R_ext/RStartup.h,void R_SetWin32(Rstart);
+function,R_SizeFromEnv,src/include/R_ext/RStartup.h,void R_SizeFromEnv(Rstart);
+function,R_common_command_line,src/include/R_ext/RStartup.h,"void R_common_command_line(int *, char **, Rstart);"
+function,R_set_command_line_arguments,src/include/R_ext/RStartup.h,"void R_set_command_line_arguments(int argc, char **argv);"
+function,int,src/include/R_ext/RStartup.h,int (*YesNoCancel) (const char *);
+function,run_Rmainloop,src/include/R_ext/RStartup.h,void run_Rmainloop(void);
+function,setup_Rmainloop,src/include/R_ext/RStartup.h,void setup_Rmainloop(void);
+function,void,src/include/R_ext/RStartup.h,void (*Suicide) (const char *s);
+variable,RGui,src/include/R_ext/RStartup.h,"extern ""C"" { #endif #ifdef Win32 typedef enum {RGui, RTerm, LinkDLL} UImode;"
+variable,RTerm,src/include/R_ext/RStartup.h,"extern ""C"" { #endif #ifdef Win32 typedef enum {RGui, RTerm, LinkDLL} UImode;"
+variable,UImode,src/include/R_ext/RStartup.h,"extern ""C"" { #endif #ifdef Win32 typedef enum {RGui, RTerm, LinkDLL} UImode;"
+function,GetRNGstate,src/include/R_ext/Random.h,void GetRNGstate(void);
+function,PutRNGstate,src/include/R_ext/Random.h,void PutRNGstate(void);
+function,R_binom_kind,src/include/R_ext/Random.h,Binomtype R_binom_kind (void);
+function,R_sample_kind,src/include/R_ext/Random.h,Sampletype R_sample_kind(void);
+function,R_unif_index,src/include/R_ext/Random.h,double R_unif_index(double);
+function,exp_rand,src/include/R_ext/Random.h,double exp_rand(void);
+function,norm_rand,src/include/R_ext/Random.h,double norm_rand(void);
+function,unif_rand,src/include/R_ext/Random.h,double unif_rand(void);
+function,user_norm_rand,src/include/R_ext/Random.h,double * user_norm_rand(void);
+function,user_unif_init,src/include/R_ext/Random.h,void user_unif_init(Int32);
+function,user_unif_nseed,src/include/R_ext/Random.h,int * user_unif_nseed(void);
+function,user_unif_rand,src/include/R_ext/Random.h,double * user_unif_rand(void);
+function,user_unif_seedloc,src/include/R_ext/Random.h,int * user_unif_seedloc(void);
+variable,KNUTH_TAOCP,src/include/R_ext/Random.h,"extern ""C"" { #endif typedef enum { WICHMANN_HILL, MARSAGLIA_MULTICARRY, SUPER_DUPER, MERSENNE_TWISTER, KNUTH_TAOCP, USER_UNIF, KNUTH_TAOCP2, LECUYER_CMRG } RNGtype;"
+variable,KNUTH_TAOCP2,src/include/R_ext/Random.h,"extern ""C"" { #endif typedef enum { WICHMANN_HILL, MARSAGLIA_MULTICARRY, SUPER_DUPER, MERSENNE_TWISTER, KNUTH_TAOCP, USER_UNIF, KNUTH_TAOCP2, LECUYER_CMRG } RNGtype;"
+variable,MARSAGLIA_MULTICARRY,src/include/R_ext/Random.h,"extern ""C"" { #endif typedef enum { WICHMANN_HILL, MARSAGLIA_MULTICARRY, SUPER_DUPER, MERSENNE_TWISTER, KNUTH_TAOCP, USER_UNIF, KNUTH_TAOCP2, LECUYER_CMRG } RNGtype;"
+variable,MERSENNE_TWISTER,src/include/R_ext/Random.h,"extern ""C"" { #endif typedef enum { WICHMANN_HILL, MARSAGLIA_MULTICARRY, SUPER_DUPER, MERSENNE_TWISTER, KNUTH_TAOCP, USER_UNIF, KNUTH_TAOCP2, LECUYER_CMRG } RNGtype;"
+variable,RNGtype,src/include/R_ext/Random.h,"extern ""C"" { #endif typedef enum { WICHMANN_HILL, MARSAGLIA_MULTICARRY, SUPER_DUPER, MERSENNE_TWISTER, KNUTH_TAOCP, USER_UNIF, KNUTH_TAOCP2, LECUYER_CMRG } RNGtype;"
+variable,SUPER_DUPER,src/include/R_ext/Random.h,"extern ""C"" { #endif typedef enum { WICHMANN_HILL, MARSAGLIA_MULTICARRY, SUPER_DUPER, MERSENNE_TWISTER, KNUTH_TAOCP, USER_UNIF, KNUTH_TAOCP2, LECUYER_CMRG } RNGtype;"
+variable,USER_UNIF,src/include/R_ext/Random.h,"extern ""C"" { #endif typedef enum { WICHMANN_HILL, MARSAGLIA_MULTICARRY, SUPER_DUPER, MERSENNE_TWISTER, KNUTH_TAOCP, USER_UNIF, KNUTH_TAOCP2, LECUYER_CMRG } RNGtype;"
+variable,WICHMANN_HILL,src/include/R_ext/Random.h,"extern ""C"" { #endif typedef enum { WICHMANN_HILL, MARSAGLIA_MULTICARRY, SUPER_DUPER, MERSENNE_TWISTER, KNUTH_TAOCP, USER_UNIF, KNUTH_TAOCP2, LECUYER_CMRG } RNGtype;"
+function,R_FindSymbol,src/include/R_ext/Rdynload.h,"DL_FUNC R_FindSymbol(char const *, char const *, R_RegisteredNativeSymbol *symbol);"
+function,R_GetCCallable,src/include/R_ext/Rdynload.h,"DL_FUNC R_GetCCallable(const char *package, const char *name);"
+function,R_RegisterCCallable,src/include/R_ext/Rdynload.h,"void R_RegisterCCallable(const char *package, const char *name, DL_FUNC fptr);"
+function,R_forceSymbols,src/include/R_ext/Rdynload.h,"Rboolean R_forceSymbols(DllInfo *info, Rboolean value);"
+function,R_getDllInfo,src/include/R_ext/Rdynload.h,DllInfo *R_getDllInfo(const char *name);
+function,R_getEmbeddingDllInfo,src/include/R_ext/Rdynload.h,DllInfo *R_getEmbeddingDllInfo(void);
+function,R_registerRoutines,src/include/R_ext/Rdynload.h,"extern ""C"" { #endif int R_registerRoutines(DllInfo *info, const R_CMethodDef * const croutines, const R_CallMethodDef * const callRoutines, const R_FortranMethodDef * const fortranRoutines, const R_ExternalMethodDef * const externalRoutines);"
+function,R_useDynamicSymbols,src/include/R_ext/Rdynload.h,"Rboolean R_useDynamicSymbols(DllInfo *info, Rboolean value);"
+function,Riconv,src/include/R_ext/Riconv.h,"size_t Riconv (void * cd, const char **inbuf, size_t *inbytesleft, char  **outbuf, size_t *outbytesleft);"
+function,Riconv_close,src/include/R_ext/Riconv.h,int Riconv_close (void * cd);
+function,Riconv_open,src/include/R_ext/Riconv.h,"extern ""C"" { #endif #undef Riconv_open #undef Riconv #undef Riconv_close void * Riconv_open (const char* tocode, const char* fromcode);"
+function,F77_NAME,src/include/R_ext/Utils.h,"void F77_NAME(qsort3)(double *v,            int *ii, int *jj);"
+function,F77_SUB,src/include/R_ext/Utils.h,"int F77_SUB(interv)(double *xt, int *n, double *x, int *rightmost_closed, int *all_inside, int *ilo, int *mflag);"
+function,R_CheckStack,src/include/R_ext/Utils.h,void R_CheckStack(void);
+function,R_CheckStack2,src/include/R_ext/Utils.h,void R_CheckStack2(R_SIZE_T);
+function,R_CheckUserInterrupt,src/include/R_ext/Utils.h,void R_CheckUserInterrupt(void);
+function,R_ExpandFileName,src/include/R_ext/Utils.h,const char *R_ExpandFileName(const char *);
+function,R_ExpandFileNameUTF8,src/include/R_ext/Utils.h,const char *R_ExpandFileNameUTF8(const char *);
+function,R_atof,src/include/R_ext/Utils.h,double R_atof(const char *str);
+function,R_csort,src/include/R_ext/Utils.h,"void	R_csort(Rcomplex*, int);"
+function,R_free_tmpnam,src/include/R_ext/Utils.h,void R_free_tmpnam(char *name);
+function,R_isort,src/include/R_ext/Utils.h,"extern ""C"" { #endif void	R_isort(int*, int);"
+function,R_max_col,src/include/R_ext/Utils.h,"void R_max_col(double *matrix, int *nr, int *nc, int *maxes, int *ties_meth);"
+function,R_qsort,src/include/R_ext/Utils.h,"void R_qsort    (double *v,         R_SIZE_T i, R_SIZE_T j);"
+function,R_qsort_I,src/include/R_ext/Utils.h,"void R_qsort_I  (double *v, int *II, int i, int j);"
+function,R_qsort_int,src/include/R_ext/Utils.h,"void R_qsort_int  (int *iv,         R_SIZE_T i, R_SIZE_T j);"
+function,R_qsort_int_I,src/include/R_ext/Utils.h,"void R_qsort_int_I(int *iv, int *II, int i, int j);"
+function,R_rsort,src/include/R_ext/Utils.h,"void	R_rsort(double*, int);"
+function,R_strtod,src/include/R_ext/Utils.h,"double R_strtod(const char *c, char **end);"
+function,R_tmpnam,src/include/R_ext/Utils.h,"char *R_tmpnam(const char *prefix, const char *tempdir);"
+function,R_tmpnam2,src/include/R_ext/Utils.h,"char *R_tmpnam2(const char *prefix, const char *tempdir, const char *fileext);"
+function,StringFalse,src/include/R_ext/Utils.h,Rboolean StringFalse(const char *);
+function,StringTrue,src/include/R_ext/Utils.h,Rboolean StringTrue(const char *);
+function,cPsort,src/include/R_ext/Utils.h,"void	cPsort(Rcomplex*, int, int);"
+function,findInterval,src/include/R_ext/Utils.h,"int findInterval(double *xt, int n, double x, Rboolean rightmost_closed,  Rboolean all_inside, int ilo, int *mflag);"
+function,findInterval2,src/include/R_ext/Utils.h,"int findInterval2(double *xt, int n, double x, Rboolean rightmost_closed,  Rboolean all_inside, Rboolean left_open, int ilo, int *mflag);"
+function,iPsort,src/include/R_ext/Utils.h,"void	iPsort(int*,    int, int);"
+function,isBlankString,src/include/R_ext/Utils.h,Rboolean isBlankString(const char *);
+function,rPsort,src/include/R_ext/Utils.h,"void	rPsort(double*, int, int);"
+function,revsort,src/include/R_ext/Utils.h,"void	revsort(double*, int*, int);"
+function,rsort_with_index,src/include/R_ext/Utils.h,"void    rsort_with_index(double *, int *, int);"
+function,R_SelectEx,src/include/R_ext/eventloop.h,"extern int R_SelectEx(int  n,  fd_set  *readfds,  fd_set  *writefds, fd_set *exceptfds, struct timeval *timeout, void (*intr)(void));"
+function,R_checkActivity,src/include/R_ext/eventloop.h,"extern fd_set *R_checkActivity(int usec, int ignore_stdin);"
+function,R_runHandlers,src/include/R_ext/eventloop.h,"extern void R_runHandlers(InputHandler *handlers, fd_set *mask);"
+function,addInputHandler,src/include/R_ext/eventloop.h,"extern InputHandler *addInputHandler(InputHandler *handlers, int fd, InputHandlerProc handler, int activity);"
+function,getInputHandler,src/include/R_ext/eventloop.h,"extern InputHandler *getInputHandler(InputHandler *handlers, int fd);"
+function,getSelectedHandler,src/include/R_ext/eventloop.h,"extern InputHandler *getSelectedHandler(InputHandler *handlers, fd_set *mask);"
+function,removeInputHandler,src/include/R_ext/eventloop.h,"extern int           removeInputHandler(InputHandler **handlers, InputHandler *it);"
+function,void,src/include/R_ext/eventloop.h,extern void (* R_PolledEvents)(void);
+variable,R_InputHandlers,src/include/R_ext/eventloop.h,extern InputHandler *R_InputHandlers;
+variable,R_wait_usec,src/include/R_ext/eventloop.h,extern int R_wait_usec;
+function,S_Rf_divset,src/include/R_ext/stats_package.h,"attribute_hidden void S_Rf_divset(int alg, int iv[], int liv, int lv, double v[]);"
+function,S_nlminb_iterate,src/include/R_ext/stats_package.h,"attribute_hidden void S_nlminb_iterate(double b[], double d[], double fx, double g[], double h[], int iv[], int liv, int lv, int n, double v[], double x[]);"
+function,S_nlsb_iterate,src/include/R_ext/stats_package.h,"attribute_hidden void S_nlsb_iterate(double b[], double d[], double dr[], int iv[], int liv, int lv, int n, int nd, int p, double r[], double rd[], double v[], double x[]);"
+function,S_rcont2,src/include/R_ext/stats_package.h,"attribute_hidden void S_rcont2(int nrow, int ncol, const int nrowt[], const int ncolt[], int ntotal, const double fact[], int jwork[], int matrix[]);"
+function,return,src/include/R_ext/stats_package.h,"static R_INLINE int S_iv_length(int alg, int n) { return (alg - 1) ? (82 + 4 * n) : (78 + 3 * n);"
+function,fun,src/include/R_ext/stats_stubs.h,"fun(nrow, ncol, nrowt, ncolt, ntotal, fact, jwork, matrix);"
+function,ALTREP_CLASS,src/include/Rinternals.h,SEXP ALTREP_CLASS(SEXP x);
+function,CLEAR_ATTRIB,src/include/Rinternals.h,void CLEAR_ATTRIB(SEXP x);
+function,COMPLEX_GET_REGION,src/include/Rinternals.h,"R_xlen_t COMPLEX_GET_REGION(SEXP sx, R_xlen_t i, R_xlen_t n, Rcomplex *buf);"
+function,DUPLICATE_ATTRIB,src/include/Rinternals.h,"void DUPLICATE_ATTRIB(SEXP to, SEXP from);"
+function,INTEGER_GET_REGION,src/include/Rinternals.h,"R_xlen_t INTEGER_GET_REGION(SEXP sx, R_xlen_t i, R_xlen_t n, int *buf);"
+function,INTEGER_IS_SORTED,src/include/Rinternals.h,int INTEGER_IS_SORTED(SEXP x);
+function,INTEGER_NO_NA,src/include/Rinternals.h,int INTEGER_NO_NA(SEXP x);
+function,LOGICAL_GET_REGION,src/include/Rinternals.h,"R_xlen_t LOGICAL_GET_REGION(SEXP sx, R_xlen_t i, R_xlen_t n, int *buf);"
+function,LOGICAL_NO_NA,src/include/Rinternals.h,int LOGICAL_NO_NA(SEXP x);
+function,RAW_GET_REGION,src/include/Rinternals.h,"R_xlen_t RAW_GET_REGION(SEXP sx, R_xlen_t i, R_xlen_t n, Rbyte *buf);"
+function,REAL_GET_REGION,src/include/Rinternals.h,"R_xlen_t REAL_GET_REGION(SEXP sx, R_xlen_t i, R_xlen_t n, double *buf);"
+function,REAL_IS_SORTED,src/include/Rinternals.h,int REAL_IS_SORTED(SEXP x);
+function,REAL_NO_NA,src/include/Rinternals.h,int REAL_NO_NA(SEXP x);
+function,R_ActiveBindingFunction,src/include/Rinternals.h,"SEXP R_ActiveBindingFunction(SEXP sym, SEXP env);"
+function,R_BindingIsActive,src/include/Rinternals.h,"Rboolean R_BindingIsActive(SEXP sym, SEXP env);"
+function,R_BindingIsLocked,src/include/Rinternals.h,"Rboolean R_BindingIsLocked(SEXP sym, SEXP env);"
+function,R_BytecodeExpr,src/include/Rinternals.h,SEXP R_BytecodeExpr(SEXP e);
+function,R_ClearExternalPtr,src/include/Rinternals.h,void R_ClearExternalPtr(SEXP s);
+function,R_ClosureBody,src/include/Rinternals.h,SEXP R_ClosureBody(SEXP);
+function,R_ClosureEnv,src/include/Rinternals.h,SEXP R_ClosureEnv(SEXP);
+function,R_ClosureExpr,src/include/Rinternals.h,SEXP R_ClosureExpr(SEXP);
+function,R_ClosureFormals,src/include/Rinternals.h,SEXP R_ClosureFormals(SEXP);
+function,R_ContinueUnwind,src/include/Rinternals.h,NORET void R_ContinueUnwind(SEXP cont);
+function,R_DelayedBindingEnvironment,src/include/Rinternals.h,"SEXP R_DelayedBindingEnvironment(SEXP sym, SEXP env);"
+function,R_DelayedBindingExpression,src/include/Rinternals.h,"SEXP R_DelayedBindingExpression(SEXP sym, SEXP env);"
+function,R_DotDelayedEnvironment,src/include/Rinternals.h,"SEXP R_DotDelayedEnvironment(int i, SEXP env);"
+function,R_DotDelayedExpression,src/include/Rinternals.h,"SEXP R_DotDelayedExpression(int i, SEXP env);"
+function,R_DotForcedExpression,src/include/Rinternals.h,"SEXP R_DotForcedExpression(int i, SEXP env);"
+function,R_DotsElt,src/include/Rinternals.h,"SEXP R_DotsElt(int i, SEXP env);"
+function,R_DotsExist,src/include/Rinternals.h,Rboolean R_DotsExist(SEXP env);
+function,R_DotsLength,src/include/Rinternals.h,int R_DotsLength(SEXP env);
+function,R_DotsNames,src/include/Rinternals.h,SEXP R_DotsNames(SEXP env);
+function,R_EnvironmentIsLocked,src/include/Rinternals.h,Rboolean R_EnvironmentIsLocked(SEXP env);
+function,R_ExecWithCleanup,src/include/Rinternals.h,"SEXP R_ExecWithCleanup(SEXP (*fun)(void *), void *data, void (*cleanfun)(void *), void *cleandata);"
+function,R_ExternalPtrAddr,src/include/Rinternals.h,void *R_ExternalPtrAddr(SEXP s);
+function,R_ExternalPtrAddrFn,src/include/Rinternals.h,DL_FUNC R_ExternalPtrAddrFn(SEXP s);
+function,R_ExternalPtrProtected,src/include/Rinternals.h,SEXP R_ExternalPtrProtected(SEXP s);
+function,R_ExternalPtrTag,src/include/Rinternals.h,SEXP R_ExternalPtrTag(SEXP s);
+function,R_FindNamespace,src/include/Rinternals.h,SEXP R_FindNamespace(SEXP info);
+function,R_ForcedBindingExpression,src/include/Rinternals.h,"SEXP R_ForcedBindingExpression(SEXP sym, SEXP env);"
+function,R_GetBindingType,src/include/Rinternals.h,"R_BindingType_t R_GetBindingType(SEXP sym, SEXP env);"
+function,R_GetCurrentEnv,src/include/Rinternals.h,SEXP R_GetCurrentEnv(void);
+function,R_GetCurrentSrcref,src/include/Rinternals.h,SEXP R_GetCurrentSrcref(int);
+function,R_GetDotType,src/include/Rinternals.h,"R_DotType_t R_GetDotType(int i, SEXP env);"
+function,R_GetSrcFilename,src/include/Rinternals.h,SEXP R_GetSrcFilename(SEXP);
+function,R_HashtabSEXP,src/include/Rinternals.h,SEXP R_HashtabSEXP(R_hashtab_type  h);
+function,R_InitConnInPStream,src/include/Rinternals.h,"void R_InitConnInPStream(R_inpstream_t stream,  Rconnection con, R_pstream_format_t type, SEXP (*phook)(SEXP, SEXP), SEXP pdata);"
+function,R_InitConnOutPStream,src/include/Rinternals.h,"void R_InitConnOutPStream(R_outpstream_t stream, Rconnection con, R_pstream_format_t type, int version, SEXP (*phook)(SEXP, SEXP), SEXP pdata);"
+function,R_InitFileInPStream,src/include/Rinternals.h,"void R_InitFileInPStream(R_inpstream_t stream, FILE *fp, R_pstream_format_t type, SEXP (*phook)(SEXP, SEXP), SEXP pdata);"
+function,R_InitFileOutPStream,src/include/Rinternals.h,"void R_InitFileOutPStream(R_outpstream_t stream, FILE *fp, R_pstream_format_t type, int version, SEXP (*phook)(SEXP, SEXP), SEXP pdata);"
+function,R_InitInPStream,src/include/Rinternals.h,"void R_InitInPStream(R_inpstream_t stream, R_pstream_data_t data, R_pstream_format_t type, int (*inchar)(R_inpstream_t), void (*inbytes)(R_inpstream_t, void *, int), SEXP (*phook)(SEXP, SEXP), SEXP pdata);"
+function,R_InitOutPStream,src/include/Rinternals.h,"void R_InitOutPStream(R_outpstream_t stream, R_pstream_data_t data, R_pstream_format_t type, int version, void (*outchar)(R_outpstream_t, int), void (*outbytes)(R_outpstream_t, void *, int), SEXP (*phook)(SEXP, SEXP), SEXP pdata);"
+function,R_IsNamespaceEnv,src/include/Rinternals.h,Rboolean R_IsNamespaceEnv(SEXP rho);
+function,R_IsPackageEnv,src/include/Rinternals.h,Rboolean R_IsPackageEnv(SEXP rho);
+function,R_LockBinding,src/include/Rinternals.h,"void R_LockBinding(SEXP sym, SEXP env);"
+function,R_LockEnvironment,src/include/Rinternals.h,"void R_LockEnvironment(SEXP env, Rboolean bindings);"
+function,R_MakeActiveBinding,src/include/Rinternals.h,"void R_MakeActiveBinding(SEXP sym, SEXP fun, SEXP env);"
+function,R_MakeDelayedBinding,src/include/Rinternals.h,"void R_MakeDelayedBinding(SEXP sym, SEXP expr, SEXP evalEnv, SEXP env);"
+function,R_MakeExternalPtr,src/include/Rinternals.h,"SEXP R_MakeExternalPtr(void *p, SEXP tag, SEXP prot);"
+function,R_MakeExternalPtrFn,src/include/Rinternals.h,"SEXP R_MakeExternalPtrFn(DL_FUNC p, SEXP tag, SEXP prot);"
+function,R_MakeForcedBinding,src/include/Rinternals.h,"void R_MakeForcedBinding(SEXP sym, SEXP expr, SEXP value, SEXP env);"
+function,R_MakeMissingBinding,src/include/Rinternals.h,"void R_MakeMissingBinding(SEXP sym, SEXP env);"
+function,R_MakeUnwindCont,src/include/Rinternals.h,SEXP R_MakeUnwindCont(void);
+function,R_MakeWeakRef,src/include/Rinternals.h,"SEXP R_MakeWeakRef(SEXP key, SEXP val, SEXP fin, Rboolean onexit);"
+function,R_MakeWeakRefC,src/include/Rinternals.h,"SEXP R_MakeWeakRefC(SEXP key, SEXP val, R_CFinalizer_t fin, Rboolean onexit);"
+function,R_NamespaceEnvSpec,src/include/Rinternals.h,SEXP R_NamespaceEnvSpec(SEXP rho);
+function,R_NewEnv,src/include/Rinternals.h,"SEXP R_NewEnv(SEXP, int, int);"
+function,R_NewPreciousMSet,src/include/Rinternals.h,SEXP R_NewPreciousMSet(int);
+function,R_PackageEnvName,src/include/Rinternals.h,SEXP R_PackageEnvName(SEXP rho);
+function,R_ParentEnv,src/include/Rinternals.h,SEXP R_ParentEnv(SEXP);
+function,R_ParseEvalString,src/include/Rinternals.h,"SEXP R_ParseEvalString(const char *, SEXP);"
+function,R_ParseString,src/include/Rinternals.h,SEXP R_ParseString(const char *);
+function,R_PreserveInMSet,src/include/Rinternals.h,"void R_PreserveInMSet(SEXP x, SEXP mset);"
+function,R_PreserveObject,src/include/Rinternals.h,void R_PreserveObject(SEXP);
+function,R_PromiseExpr,src/include/Rinternals.h,SEXP R_PromiseExpr(SEXP);
+function,R_ProtectWithIndex,src/include/Rinternals.h,"void R_ProtectWithIndex(SEXP, PROTECT_INDEX *);"
+function,R_RegisterCFinalizer,src/include/Rinternals.h,"void R_RegisterCFinalizer(SEXP s, R_CFinalizer_t fun);"
+function,R_RegisterCFinalizerEx,src/include/Rinternals.h,"void R_RegisterCFinalizerEx(SEXP s, R_CFinalizer_t fun, Rboolean onexit);"
+function,R_RegisterFinalizer,src/include/Rinternals.h,"void R_RegisterFinalizer(SEXP s, SEXP fun);"
+function,R_RegisterFinalizerEx,src/include/Rinternals.h,"void R_RegisterFinalizerEx(SEXP s, SEXP fun, Rboolean onexit);"
+function,R_ReleaseFromMSet,src/include/Rinternals.h,"void R_ReleaseFromMSet(SEXP x, SEXP mset);"
+function,R_ReleaseObject,src/include/Rinternals.h,void R_ReleaseObject(SEXP);
+function,R_Reprotect,src/include/Rinternals.h,"void R_Reprotect(SEXP, PROTECT_INDEX);"
+function,R_RunExitFinalizers,src/include/Rinternals.h,void R_RunExitFinalizers(void);
+function,R_RunPendingFinalizers,src/include/Rinternals.h,void R_RunPendingFinalizers(void);
+function,R_RunWeakRefFinalizer,src/include/Rinternals.h,void R_RunWeakRefFinalizer(SEXP w);
+function,R_Serialize,src/include/Rinternals.h,"void R_Serialize(SEXP s, R_outpstream_t ops);"
+function,R_SetExternalPtrAddr,src/include/Rinternals.h,"void R_SetExternalPtrAddr(SEXP s, void *p);"
+function,R_SetExternalPtrProtected,src/include/Rinternals.h,"void R_SetExternalPtrProtected(SEXP s, SEXP p);"
+function,R_SetExternalPtrTag,src/include/Rinternals.h,"void R_SetExternalPtrTag(SEXP s, SEXP tag);"
+function,R_ToplevelExec,src/include/Rinternals.h,"Rboolean R_ToplevelExec(void (*fun)(void *), void *data);"
+function,R_Unserialize,src/include/Rinternals.h,SEXP R_Unserialize(R_inpstream_t ips);
+function,R_UnwindProtect,src/include/Rinternals.h,"SEXP R_UnwindProtect(SEXP (*fun)(void *data), void *data, void (*cleanfun)(void *data, Rboolean jump), void *cleandata, SEXP cont);"
+function,R_WeakRefKey,src/include/Rinternals.h,SEXP R_WeakRefKey(SEXP w);
+function,R_WeakRefValue,src/include/Rinternals.h,SEXP R_WeakRefValue(SEXP w);
+function,R_allocResizableVector,src/include/Rinternals.h,"SEXP R_allocResizableVector(SEXPTYPE type, R_xlen_t maxlen);"
+function,R_altrep_class_name,src/include/Rinternals.h,SEXP R_altrep_class_name(SEXP x);
+function,R_altrep_class_package,src/include/Rinternals.h,SEXP R_altrep_class_package(SEXP x);
+function,R_altrep_data1,src/include/Rinternals.h,SEXP R_altrep_data1(SEXP x);
+function,R_altrep_data2,src/include/Rinternals.h,SEXP R_altrep_data2(SEXP x);
+function,R_asHashtable,src/include/Rinternals.h,R_hashtab_type R_asHashtable(SEXP h);
+function,R_check_class_etc,src/include/Rinternals.h,"int R_check_class_etc      (SEXP x, const char **valid);"
+function,R_class,src/include/Rinternals.h,SEXP R_class(SEXP);
+function,R_clrhash,src/include/Rinternals.h,void R_clrhash(R_hashtab_type h);
+function,R_compute_identical,src/include/Rinternals.h,"Rboolean R_compute_identical(SEXP, SEXP, int);"
+function,R_curErrorBuf,src/include/Rinternals.h,const char *R_curErrorBuf(void);
+function,R_data_class,src/include/Rinternals.h,"SEXP R_data_class(SEXP , Rboolean);"
+function,R_do_MAKE_CLASS,src/include/Rinternals.h,SEXP R_do_MAKE_CLASS(const char *what);
+function,R_do_new_object,src/include/Rinternals.h,SEXP R_do_new_object(SEXP class_def);
+function,R_do_slot,src/include/Rinternals.h,"SEXP R_do_slot(SEXP obj, SEXP name);"
+function,R_do_slot_assign,src/include/Rinternals.h,"SEXP R_do_slot_assign(SEXP obj, SEXP name, SEXP value);"
+function,R_dot_Last,src/include/Rinternals.h,void R_dot_Last(void);
+function,R_duplicateAsResizable,src/include/Rinternals.h,SEXP R_duplicateAsResizable(SEXP x);
+function,R_envSymbols,src/include/Rinternals.h,SEXP R_envSymbols(SEXP env);
+function,R_existsVarInFrame,src/include/Rinternals.h,"Rboolean R_existsVarInFrame(SEXP, SEXP);"
+function,R_findDotsEnv,src/include/Rinternals.h,SEXP R_findDotsEnv(SEXP env);
+function,R_forceAndCall,src/include/Rinternals.h,"SEXP R_forceAndCall(SEXP e, int n, SEXP rho);"
+function,R_getAttribCount,src/include/Rinternals.h,R_xlen_t R_getAttribCount(SEXP x);
+function,R_getAttribNames,src/include/Rinternals.h,SEXP R_getAttribNames(SEXP x);
+function,R_getAttributes,src/include/Rinternals.h,SEXP R_getAttributes(SEXP x);
+function,R_getClassDef,src/include/Rinternals.h,SEXP R_getClassDef  (const char *what);
+function,R_getRegisteredNamespace,src/include/Rinternals.h,SEXP R_getRegisteredNamespace(const char *name);
+function,R_getVar,src/include/Rinternals.h,"SEXP R_getVar(SEXP, SEXP, Rboolean);"
+function,R_getVarEx,src/include/Rinternals.h,"SEXP R_getVarEx(SEXP, SEXP, Rboolean, SEXP);"
+function,R_gethash,src/include/Rinternals.h,"SEXP R_gethash(R_hashtab_type h, SEXP key, SEXP nomatch);"
+function,R_hasAttrib,src/include/Rinternals.h,"bool R_hasAttrib(SEXP x, SEXP name);"
+function,R_has_slot,src/include/Rinternals.h,"int R_has_slot(SEXP obj, SEXP name);"
+function,R_isHashtable,src/include/Rinternals.h,int R_isHashtable(SEXP h);
+function,R_isResizable,src/include/Rinternals.h,bool R_isResizable(SEXP x);
+function,R_isTRUE,src/include/Rinternals.h,Rboolean R_isTRUE(SEXP);
+function,R_lsInternal3,src/include/Rinternals.h,"SEXP R_lsInternal3(SEXP, Rboolean, Rboolean);"
+function,R_mapAttrib,src/include/Rinternals.h,"SEXP R_mapAttrib(SEXP x, SEXP (*FUN)(SEXP, SEXP, void *), void *data);"
+function,R_maphash,src/include/Rinternals.h,"SEXP R_maphash(R_hashtab_type h, SEXP FUN);"
+function,R_maphashC,src/include/Rinternals.h,"SEXP R_maphashC(R_hashtab_type h, SEXP (*FUN)(SEXP, SEXP, void *), void *data);"
+function,R_maxLength,src/include/Rinternals.h,R_xlen_t R_maxLength(SEXP x);
+function,R_mkClosure,src/include/Rinternals.h,"SEXP R_mkClosure(SEXP, SEXP, SEXP);"
+function,R_mkhashtab,src/include/Rinternals.h,"R_hashtab_type R_mkhashtab(int type, int );"
+function,R_ncol,src/include/Rinternals.h,R_xlen_t R_ncol(SEXP x);
+function,R_nrow,src/include/Rinternals.h,R_xlen_t R_nrow(SEXP x);
+function,R_numhash,src/include/Rinternals.h,int R_numhash(R_hashtab_type h);
+function,R_orderVector,src/include/Rinternals.h,"void R_orderVector (int *indx, int n, SEXP arglist, Rboolean nalast, Rboolean decreasing);"
+function,R_orderVector1,src/include/Rinternals.h,"void R_orderVector1(int *indx, int n, SEXP x,       Rboolean nalast, Rboolean decreasing);"
+function,R_remhash,src/include/Rinternals.h,"int R_remhash(R_hashtab_type h, SEXP key);"
+function,R_removeVarFromFrame,src/include/Rinternals.h,"void R_removeVarFromFrame(SEXP, SEXP);"
+function,R_resizeVector,src/include/Rinternals.h,"void R_resizeVector(SEXP x, R_xlen_t newlen);"
+function,R_set_altrep_data1,src/include/Rinternals.h,"void R_set_altrep_data1(SEXP x, SEXP v);"
+function,R_set_altrep_data2,src/include/Rinternals.h,"void R_set_altrep_data2(SEXP x, SEXP v);"
+function,R_sethash,src/include/Rinternals.h,"SEXP R_sethash(R_hashtab_type h, SEXP key, SEXP value);"
+function,R_tryCatch,src/include/Rinternals.h,"SEXP R_tryCatch(SEXP (*)(void *), void *, SEXP, SEXP (*)(SEXP, void *), void *, void (*)(void *), void *);"
+function,R_tryCatchError,src/include/Rinternals.h,"SEXP R_tryCatchError(SEXP (*)(void *), void *, SEXP (*)(SEXP, void *), void *);"
+function,R_tryEval,src/include/Rinternals.h,"SEXP R_tryEval(SEXP, SEXP, int *);"
+function,R_tryEvalSilent,src/include/Rinternals.h,"SEXP R_tryEvalSilent(SEXP, SEXP, int *);"
+function,R_tryWrap,src/include/Rinternals.h,SEXP R_tryWrap(SEXP);
+function,R_typhash,src/include/Rinternals.h,int R_typhash(R_hashtab_type h);
+function,R_unLockBinding,src/include/Rinternals.h,"void R_unLockBinding(SEXP sym, SEXP env);"
+function,R_withCallingErrorHandler,src/include/Rinternals.h,"SEXP R_withCallingErrorHandler(SEXP (*)(void *), void *, SEXP (*)(SEXP, void *), void *);"
+function,R_xlen_t,src/include/Rinternals.h,R_xlen_t  (XLENGTH)(SEXP x);
+function,Rboolean,src/include/Rinternals.h,Rboolean (Rf_isObject)(SEXP s);
+function,Rbyte,src/include/Rinternals.h,"Rbyte (RAW_ELT)(SEXP x, R_xlen_t i);"
+function,Rcomplex,src/include/Rinternals.h,"Rcomplex (COMPLEX_ELT)(SEXP x, R_xlen_t i);"
+function,Rf_GetArrayDimnames,src/include/Rinternals.h,SEXP Rf_GetArrayDimnames(SEXP);
+function,Rf_GetColNames,src/include/Rinternals.h,SEXP Rf_GetColNames(SEXP);
+function,Rf_GetMatrixDimnames,src/include/Rinternals.h,"void Rf_GetMatrixDimnames(SEXP, SEXP*, SEXP*, const char**, const char**);"
+function,Rf_GetOption1,src/include/Rinternals.h,SEXP Rf_GetOption1(SEXP);
+function,Rf_GetOptionWidth,src/include/Rinternals.h,int Rf_GetOptionWidth(void);
+function,Rf_GetRowNames,src/include/Rinternals.h,SEXP Rf_GetRowNames(SEXP);
+function,Rf_PairToVectorList,src/include/Rinternals.h,SEXP Rf_PairToVectorList(SEXP x);
+function,Rf_PrintValue,src/include/Rinternals.h,void Rf_PrintValue(SEXP);
+function,Rf_ScalarComplex,src/include/Rinternals.h,SEXP	 Rf_ScalarComplex(Rcomplex);
+function,Rf_ScalarInteger,src/include/Rinternals.h,SEXP	 Rf_ScalarInteger(int);
+function,Rf_ScalarLogical,src/include/Rinternals.h,SEXP	 Rf_ScalarLogical(int);
+function,Rf_ScalarRaw,src/include/Rinternals.h,SEXP	 Rf_ScalarRaw(Rbyte);
+function,Rf_ScalarReal,src/include/Rinternals.h,SEXP	 Rf_ScalarReal(double);
+function,Rf_ScalarString,src/include/Rinternals.h,SEXP	 Rf_ScalarString(SEXP);
+function,Rf_StringBlank,src/include/Rinternals.h,Rboolean Rf_StringBlank(SEXP);
+function,Rf_VectorToPairList,src/include/Rinternals.h,SEXP Rf_VectorToPairList(SEXP x);
+function,Rf_acopy_string,src/include/Rinternals.h,char * Rf_acopy_string(const char *);
+function,Rf_alloc3DArray,src/include/Rinternals.h,"SEXP Rf_alloc3DArray(SEXPTYPE, int, int, int);"
+function,Rf_allocArray,src/include/Rinternals.h,"SEXP Rf_allocArray(SEXPTYPE, SEXP);"
+function,Rf_allocLang,src/include/Rinternals.h,SEXP Rf_allocLang(int);
+function,Rf_allocList,src/include/Rinternals.h,SEXP Rf_allocList(int);
+function,Rf_allocMatrix,src/include/Rinternals.h,"SEXP Rf_allocMatrix(SEXPTYPE, int, int);"
+function,Rf_allocS4Object,src/include/Rinternals.h,SEXP Rf_allocS4Object(void);
+function,Rf_allocSExp,src/include/Rinternals.h,SEXP Rf_allocSExp(SEXPTYPE);
+function,Rf_allocVector,src/include/Rinternals.h,"SEXP     Rf_allocVector(SEXPTYPE, R_xlen_t);"
+function,Rf_any_duplicated,src/include/Rinternals.h,"R_xlen_t Rf_any_duplicated(SEXP x, Rboolean from_last);"
+function,Rf_any_duplicated3,src/include/Rinternals.h,"R_xlen_t Rf_any_duplicated3(SEXP x, SEXP incomp, Rboolean from_last);"
+function,Rf_asBool,src/include/Rinternals.h,bool Rf_asBool(SEXP x);
+function,Rf_asChar,src/include/Rinternals.h,SEXP Rf_asChar(SEXP);
+function,Rf_asCharacterFactor,src/include/Rinternals.h,SEXP Rf_asCharacterFactor(SEXP x);
+function,Rf_asComplex,src/include/Rinternals.h,Rcomplex Rf_asComplex(SEXP x);
+function,Rf_asInteger,src/include/Rinternals.h,int Rf_asInteger(SEXP x);
+function,Rf_asLogical,src/include/Rinternals.h,int Rf_asLogical(SEXP x);
+function,Rf_asRboolean,src/include/Rinternals.h,Rboolean Rf_asRboolean(SEXP x);
+function,Rf_asReal,src/include/Rinternals.h,double Rf_asReal(SEXP x);
+function,Rf_asS4,src/include/Rinternals.h,"SEXP Rf_asS4(SEXP, Rboolean, int);"
+function,Rf_charIsASCII,src/include/Rinternals.h,Rboolean Rf_charIsASCII(SEXP);
+function,Rf_charIsLatin1,src/include/Rinternals.h,Rboolean Rf_charIsLatin1(SEXP);
+function,Rf_charIsUTF8,src/include/Rinternals.h,Rboolean Rf_charIsUTF8(SEXP);
+function,Rf_classgets,src/include/Rinternals.h,"SEXP Rf_classgets(SEXP, SEXP);"
+function,Rf_coerceVector,src/include/Rinternals.h,"SEXP Rf_coerceVector(SEXP, SEXPTYPE);"
+function,Rf_cons,src/include/Rinternals.h,"SEXP Rf_cons(SEXP, SEXP);"
+function,Rf_copyListMatrix,src/include/Rinternals.h,"void Rf_copyListMatrix(SEXP, SEXP, Rboolean);"
+function,Rf_copyMatrix,src/include/Rinternals.h,"void Rf_copyMatrix(SEXP, SEXP, Rboolean);"
+function,Rf_copyMostAttrib,src/include/Rinternals.h,"void Rf_copyMostAttrib(SEXP, SEXP);"
+function,Rf_copyVector,src/include/Rinternals.h,"void Rf_copyVector(SEXP, SEXP);"
+function,Rf_defineVar,src/include/Rinternals.h,"void Rf_defineVar(SEXP, SEXP, SEXP);"
+function,Rf_dimgets,src/include/Rinternals.h,"SEXP Rf_dimgets(SEXP, SEXP);"
+function,Rf_dimnamesgets,src/include/Rinternals.h,"SEXP Rf_dimnamesgets(SEXP, SEXP);"
+function,Rf_duplicate,src/include/Rinternals.h,SEXP Rf_duplicate(SEXP);
+function,Rf_duplicated,src/include/Rinternals.h,"SEXP Rf_duplicated(SEXP, Rboolean);"
+function,Rf_elt,src/include/Rinternals.h,"SEXP	 Rf_elt(SEXP, int);"
+function,Rf_errorcall,src/include/Rinternals.h,"NORET void Rf_errorcall(SEXP, const char *, ...) R_PRINTF_FORMAT(2, 3);"
+function,Rf_eval,src/include/Rinternals.h,"SEXP Rf_eval(SEXP, SEXP);"
+function,Rf_findFun,src/include/Rinternals.h,"SEXP Rf_findFun(SEXP, SEXP);"
+function,Rf_findVar,src/include/Rinternals.h,"SEXP Rf_findVar(SEXP, SEXP);"
+function,Rf_findVarInFrame,src/include/Rinternals.h,"SEXP Rf_findVarInFrame(SEXP, SEXP);"
+function,Rf_getAttrib,src/include/Rinternals.h,"SEXP Rf_getAttrib(SEXP, SEXP);"
+function,Rf_getCharCE,src/include/Rinternals.h,cetype_t Rf_getCharCE(SEXP);
+function,Rf_inherits,src/include/Rinternals.h,"Rboolean Rf_inherits(SEXP, const char *);"
+function,Rf_install,src/include/Rinternals.h,SEXP Rf_install(const char *);
+function,Rf_installChar,src/include/Rinternals.h,SEXP Rf_installChar(SEXP);
+function,Rf_installTrChar,src/include/Rinternals.h,SEXP Rf_installTrChar(SEXP);
+function,Rf_isArray,src/include/Rinternals.h,Rboolean Rf_isArray(SEXP);
+function,Rf_isDataFrame,src/include/Rinternals.h,Rboolean Rf_isDataFrame(SEXP);
+function,Rf_isFactor,src/include/Rinternals.h,Rboolean Rf_isFactor(SEXP);
+function,Rf_isFunction,src/include/Rinternals.h,Rboolean Rf_isFunction(SEXP);
+function,Rf_isInteger,src/include/Rinternals.h,Rboolean Rf_isInteger(SEXP);
+function,Rf_isLanguage,src/include/Rinternals.h,Rboolean Rf_isLanguage(SEXP);
+function,Rf_isList,src/include/Rinternals.h,Rboolean Rf_isList(SEXP);
+function,Rf_isMatrix,src/include/Rinternals.h,Rboolean Rf_isMatrix(SEXP);
+function,Rf_isNewList,src/include/Rinternals.h,Rboolean Rf_isNewList(SEXP);
+function,Rf_isNumber,src/include/Rinternals.h,Rboolean Rf_isNumber(SEXP);
+function,Rf_isNumeric,src/include/Rinternals.h,Rboolean Rf_isNumeric(SEXP);
+function,Rf_isOrdered,src/include/Rinternals.h,Rboolean Rf_isOrdered(SEXP);
+function,Rf_isPairList,src/include/Rinternals.h,Rboolean Rf_isPairList(SEXP);
+function,Rf_isPrimitive,src/include/Rinternals.h,Rboolean Rf_isPrimitive(SEXP);
+function,Rf_isS4,src/include/Rinternals.h,Rboolean Rf_isS4(SEXP);
+function,Rf_isScalarString,src/include/Rinternals.h,Rboolean Rf_isScalarString(SEXP);
+function,Rf_isTs,src/include/Rinternals.h,Rboolean Rf_isTs(SEXP);
+function,Rf_isUnordered,src/include/Rinternals.h,Rboolean Rf_isUnordered(SEXP);
+function,Rf_isUnsorted,src/include/Rinternals.h,"Rboolean Rf_isUnsorted(SEXP, Rboolean);"
+function,Rf_isVector,src/include/Rinternals.h,Rboolean Rf_isVector(SEXP);
+function,Rf_isVectorAtomic,src/include/Rinternals.h,Rboolean Rf_isVectorAtomic(SEXP);
+function,Rf_isVectorList,src/include/Rinternals.h,Rboolean Rf_isVectorList(SEXP);
+function,Rf_isVectorizable,src/include/Rinternals.h,Rboolean Rf_isVectorizable(SEXP);
+function,Rf_lang1,src/include/Rinternals.h,SEXP	 Rf_lang1(SEXP);
+function,Rf_lang2,src/include/Rinternals.h,"SEXP	 Rf_lang2(SEXP, SEXP);"
+function,Rf_lang3,src/include/Rinternals.h,"SEXP	 Rf_lang3(SEXP, SEXP, SEXP);"
+function,Rf_lang4,src/include/Rinternals.h,"SEXP	 Rf_lang4(SEXP, SEXP, SEXP, SEXP);"
+function,Rf_lang5,src/include/Rinternals.h,"SEXP	 Rf_lang5(SEXP, SEXP, SEXP, SEXP, SEXP);"
+function,Rf_lang6,src/include/Rinternals.h,"SEXP	 Rf_lang6(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);"
+function,Rf_lastElt,src/include/Rinternals.h,SEXP	 Rf_lastElt(SEXP);
+function,Rf_lcons,src/include/Rinternals.h,"SEXP	 Rf_lcons(SEXP, SEXP);"
+function,Rf_length,src/include/Rinternals.h,R_len_t  Rf_length(SEXP);
+function,Rf_lengthgets,src/include/Rinternals.h,"SEXP Rf_lengthgets(SEXP, R_len_t);"
+function,Rf_list1,src/include/Rinternals.h,SEXP	 Rf_list1(SEXP);
+function,Rf_list2,src/include/Rinternals.h,"SEXP	 Rf_list2(SEXP, SEXP);"
+function,Rf_list3,src/include/Rinternals.h,"SEXP	 Rf_list3(SEXP, SEXP, SEXP);"
+function,Rf_list4,src/include/Rinternals.h,"SEXP	 Rf_list4(SEXP, SEXP, SEXP, SEXP);"
+function,Rf_list5,src/include/Rinternals.h,"SEXP	 Rf_list5(SEXP, SEXP, SEXP, SEXP, SEXP);"
+function,Rf_list6,src/include/Rinternals.h,"SEXP	 Rf_list6(SEXP, SEXP, SEXP, SEXP, SEXP, SEXP);"
+function,Rf_listAppend,src/include/Rinternals.h,"SEXP	 Rf_listAppend(SEXP, SEXP);"
+function,Rf_match,src/include/Rinternals.h,"SEXP Rf_match(SEXP, SEXP, int);"
+function,Rf_mkChar,src/include/Rinternals.h,SEXP Rf_mkChar(const char *);
+function,Rf_mkCharCE,src/include/Rinternals.h,"SEXP Rf_mkCharCE(const char *, cetype_t);"
+function,Rf_mkCharLen,src/include/Rinternals.h,"SEXP Rf_mkCharLen(const char *, int);"
+function,Rf_mkCharLenCE,src/include/Rinternals.h,"SEXP Rf_mkCharLenCE(const char *, int, cetype_t);"
+function,Rf_mkNamed,src/include/Rinternals.h,"SEXP	 Rf_mkNamed(SEXPTYPE, const char **);"
+function,Rf_mkString,src/include/Rinternals.h,SEXP	 Rf_mkString(const char *);
+function,Rf_namesgets,src/include/Rinternals.h,"SEXP Rf_namesgets(SEXP, SEXP);"
+function,Rf_ncols,src/include/Rinternals.h,int Rf_ncols(SEXP);
+function,Rf_nlevels,src/include/Rinternals.h,int	 Rf_nlevels(SEXP);
+function,Rf_nrows,src/include/Rinternals.h,int Rf_nrows(SEXP);
+function,Rf_nthcdr,src/include/Rinternals.h,"SEXP Rf_nthcdr(SEXP, int);"
+function,Rf_pmatch,src/include/Rinternals.h,"Rboolean Rf_pmatch(SEXP, SEXP, Rboolean);"
+function,Rf_protect,src/include/Rinternals.h,SEXP Rf_protect(SEXP);
+function,Rf_psmatch,src/include/Rinternals.h,"Rboolean Rf_psmatch(const char *, const char *, Rboolean);"
+function,Rf_reEnc,src/include/Rinternals.h,"const char *Rf_reEnc(const char *x, cetype_t ce_in, cetype_t ce_out, int subst);"
+function,Rf_setAttrib,src/include/Rinternals.h,"SEXP Rf_setAttrib(SEXP, SEXP, SEXP);"
+function,Rf_setVar,src/include/Rinternals.h,"void Rf_setVar(SEXP, SEXP, SEXP);"
+function,Rf_shallow_duplicate,src/include/Rinternals.h,SEXP Rf_shallow_duplicate(SEXP);
+function,Rf_str2type,src/include/Rinternals.h,SEXPTYPE Rf_str2type(const char *);
+function,Rf_topenv,src/include/Rinternals.h,"SEXP Rf_topenv(SEXP, SEXP);"
+function,Rf_translateChar,src/include/Rinternals.h,const char * Rf_translateChar(SEXP);
+function,Rf_translateCharUTF8,src/include/Rinternals.h,const char * Rf_translateCharUTF8(SEXP);
+function,Rf_type2char,src/include/Rinternals.h,const char * Rf_type2char(SEXPTYPE);
+function,Rf_type2str,src/include/Rinternals.h,SEXP Rf_type2str(SEXPTYPE);
+function,Rf_type2str_nowarn,src/include/Rinternals.h,SEXP Rf_type2str_nowarn(SEXPTYPE);
+function,Rf_unprotect,src/include/Rinternals.h,void Rf_unprotect(int);
+function,Rf_unprotect_ptr,src/include/Rinternals.h,void Rf_unprotect_ptr(SEXP);
+function,Rf_warningcall,src/include/Rinternals.h,"void Rf_warningcall(SEXP, const char *, ...) R_PRINTF_FORMAT(2, 3);"
+function,Rf_warningcall_immediate,src/include/Rinternals.h,"void Rf_warningcall_immediate(SEXP, const char *, ...) R_PRINTF_FORMAT(2, 3);"
+function,Rf_xlength,src/include/Rinternals.h,R_xlen_t  Rf_xlength(SEXP);
+function,Rf_xlengthgets,src/include/Rinternals.h,"SEXP Rf_xlengthgets(SEXP, R_xlen_t);"
+function,SETCAD4R,src/include/Rinternals.h,"SEXP SETCAD4R(SEXP e, SEXP y);"
+function,SETCADDDR,src/include/Rinternals.h,"SEXP SETCADDDR(SEXP x, SEXP y);"
+function,SETCADDR,src/include/Rinternals.h,"SEXP SETCADDR(SEXP x, SEXP y);"
+function,SETCADR,src/include/Rinternals.h,"SEXP SETCADR(SEXP x, SEXP y);"
+function,SETCAR,src/include/Rinternals.h,"SEXP SETCAR(SEXP x, SEXP y);"
+function,SETCDR,src/include/Rinternals.h,"SEXP SETCDR(SEXP x, SEXP y);"
+function,SET_ATTRIB,src/include/Rinternals.h,"void SET_ATTRIB(SEXP x, SEXP v);"
+function,SET_COMPLEX_ELT,src/include/Rinternals.h,"void SET_COMPLEX_ELT(SEXP x, R_xlen_t i, Rcomplex v);"
+function,SET_INTEGER_ELT,src/include/Rinternals.h,"void SET_INTEGER_ELT(SEXP x, R_xlen_t i, int v);"
+function,SET_LOGICAL_ELT,src/include/Rinternals.h,"void SET_LOGICAL_ELT(SEXP x, R_xlen_t i, int v);"
+function,SET_RAW_ELT,src/include/Rinternals.h,"void SET_RAW_ELT(SEXP x, R_xlen_t i, Rbyte v);"
+function,SET_REAL_ELT,src/include/Rinternals.h,"void SET_REAL_ELT(SEXP x, R_xlen_t i, double v);"
+function,SET_STRING_ELT,src/include/Rinternals.h,"void SET_STRING_ELT(SEXP x, R_xlen_t i, SEXP v);"
+function,SET_TAG,src/include/Rinternals.h,"void SET_TAG(SEXP x, SEXP y);"
+function,SET_VECTOR_ELT,src/include/Rinternals.h,"SEXP SET_VECTOR_ELT(SEXP x, R_xlen_t i, SEXP v);"
+function,SEXP,src/include/Rinternals.h,SEXP (PRENV)(SEXP x);
+function,SHALLOW_DUPLICATE_ATTRIB,src/include/Rinternals.h,"void SHALLOW_DUPLICATE_ATTRIB(SEXP to, SEXP from);"
+function,STRING_IS_SORTED,src/include/Rinternals.h,int STRING_IS_SORTED(SEXP x);
+function,STRING_NO_NA,src/include/Rinternals.h,int STRING_NO_NA(SEXP x);
+function,double,src/include/Rinternals.h,"double (REAL_ELT)(SEXP x, R_xlen_t i);"
+function,int,src/include/Rinternals.h,int  (ENVFLAGS)(SEXP x);
+function,void,src/include/Rinternals.h,"void (SET_ENVFLAGS)(SEXP x, int v);"
+variable,R_AsCharacterSymbol,src/include/Rinternals.h,LibExtern SEXP	R_AsCharacterSymbol;
+variable,R_AtsignSymbol,src/include/Rinternals.h,LibExtern SEXP	R_AtsignSymbol;
+variable,R_BaseEnv,src/include/Rinternals.h,LibExtern SEXP  R_BaseEnv;
+variable,R_BaseNamespace,src/include/Rinternals.h,LibExtern SEXP	R_BaseNamespace;
+variable,R_BaseSymbol,src/include/Rinternals.h,LibExtern SEXP	R_BaseSymbol;
+variable,R_BlankScalarString,src/include/Rinternals.h,LibExtern SEXP	R_BlankScalarString;
+variable,R_BlankString,src/include/Rinternals.h,LibExtern SEXP	R_BlankString;
+variable,R_BraceSymbol,src/include/Rinternals.h,LibExtern SEXP	R_BraceSymbol;
+variable,R_Bracket2Symbol,src/include/Rinternals.h,LibExtern SEXP	R_Bracket2Symbol;
+variable,R_BracketSymbol,src/include/Rinternals.h,LibExtern SEXP	R_BracketSymbol;
+variable,R_ClassSymbol,src/include/Rinternals.h,LibExtern SEXP	R_ClassSymbol;
+variable,R_DeviceSymbol,src/include/Rinternals.h,LibExtern SEXP	R_DeviceSymbol;
+variable,R_DimNamesSymbol,src/include/Rinternals.h,LibExtern SEXP	R_DimNamesSymbol;
+variable,R_DimSymbol,src/include/Rinternals.h,LibExtern SEXP	R_DimSymbol;
+variable,R_DollarSymbol,src/include/Rinternals.h,LibExtern SEXP	R_DollarSymbol;
+variable,R_DotsSymbol,src/include/Rinternals.h,LibExtern SEXP	R_DotsSymbol;
+variable,R_DoubleColonSymbol,src/include/Rinternals.h,LibExtern SEXP	R_DoubleColonSymbol;
+variable,R_DropSymbol,src/include/Rinternals.h,LibExtern SEXP	R_DropSymbol;
+variable,R_EmptyEnv,src/include/Rinternals.h,LibExtern SEXP  R_EmptyEnv;
+variable,R_EvalSymbol,src/include/Rinternals.h,LibExtern SEXP	R_EvalSymbol;
+variable,R_FunctionSymbol,src/include/Rinternals.h,LibExtern SEXP	R_FunctionSymbol;
+variable,R_GlobalEnv,src/include/Rinternals.h,LibExtern SEXP	R_GlobalEnv;
+variable,R_LastvalueSymbol,src/include/Rinternals.h,LibExtern SEXP	R_LastvalueSymbol;
+variable,R_LevelsSymbol,src/include/Rinternals.h,LibExtern SEXP	R_LevelsSymbol;
+variable,R_MissingArg,src/include/Rinternals.h,LibExtern SEXP	R_MissingArg;
+variable,R_ModeSymbol,src/include/Rinternals.h,LibExtern SEXP	R_ModeSymbol;
+variable,R_NaRmSymbol,src/include/Rinternals.h,LibExtern SEXP	R_NaRmSymbol;
+variable,R_NaString,src/include/Rinternals.h,LibExtern SEXP	R_NaString;
+variable,R_NameSymbol,src/include/Rinternals.h,LibExtern SEXP	R_NameSymbol;
+variable,R_NamesSymbol,src/include/Rinternals.h,LibExtern SEXP	R_NamesSymbol;
+variable,R_NamespaceEnvSymbol,src/include/Rinternals.h,LibExtern SEXP	R_NamespaceEnvSymbol;
+variable,R_NamespaceRegistry,src/include/Rinternals.h,extern SEXP R_NamespaceRegistry;
+variable,R_NilValue,src/include/Rinternals.h,LibExtern SEXP	R_NilValue;
+variable,R_PackageSymbol,src/include/Rinternals.h,LibExtern SEXP	R_PackageSymbol;
+variable,R_PreviousSymbol,src/include/Rinternals.h,LibExtern SEXP	R_PreviousSymbol;
+variable,R_QuoteSymbol,src/include/Rinternals.h,LibExtern SEXP	R_QuoteSymbol;
+variable,R_RestartToken,src/include/Rinternals.h,attribute_hidden #else extern #endif SEXP	R_RestartToken;
+variable,R_RowNamesSymbol,src/include/Rinternals.h,LibExtern SEXP	R_RowNamesSymbol;
+variable,R_SeedsSymbol,src/include/Rinternals.h,LibExtern SEXP	R_SeedsSymbol;
+variable,R_SortListSymbol,src/include/Rinternals.h,LibExtern SEXP	R_SortListSymbol;
+variable,R_SourceSymbol,src/include/Rinternals.h,LibExtern SEXP	R_SourceSymbol;
+variable,R_SpecSymbol,src/include/Rinternals.h,LibExtern SEXP	R_SpecSymbol;
+variable,R_Srcref,src/include/Rinternals.h,LibExtern SEXP	R_Srcref;
+variable,R_TripleColonSymbol,src/include/Rinternals.h,LibExtern SEXP	R_TripleColonSymbol;
+variable,R_TspSymbol,src/include/Rinternals.h,LibExtern SEXP	R_TspSymbol;
+variable,R_UnboundValue,src/include/Rinternals.h,LibExtern SEXP	R_UnboundValue;
+variable,R_baseSymbol,src/include/Rinternals.h,LibExtern SEXP	R_baseSymbol;
+variable,R_dot_Generic,src/include/Rinternals.h,LibExtern SEXP  R_dot_Generic;
+variable,R_dot_Method,src/include/Rinternals.h,LibExtern SEXP  R_dot_Method;
+variable,R_dot_defined,src/include/Rinternals.h,LibExtern SEXP  R_dot_defined;
+variable,R_dot_packageName,src/include/Rinternals.h,LibExtern SEXP	R_dot_packageName;
+variable,R_dot_target,src/include/Rinternals.h,LibExtern SEXP  R_dot_target;
+variable,Rbyte,src/include/Rinternals.h,"extern ""C"" { #endif typedef unsigned char Rbyte;"

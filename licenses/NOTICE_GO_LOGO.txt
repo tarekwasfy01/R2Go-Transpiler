@@ -1,0 +1,23 @@
+GO LOGO / TRADEMARK NOTICE
+==========================
+
+"Go" and the Go Logo are trademarks of Google LLC.
+
+Official Go brand and trademark usage guidelines:
+https://go.dev/brand
+
+Official Go brand announcement / logo resources:
+https://go.dev/blog/go-brand
+
+The Go project expressly treats the Go word mark and Go Logo separately from
+the copyright licenses covering the BSD-licensed Go source repositories.
+Use of the Go Logo is therefore governed by the Go brand/trademark guidelines,
+not merely by the Go source-code license.
+
+r2go is an independent project. Use of Go-related marks is intended only to
+identify compatibility with / output for the Go programming language and does
+not imply endorsement by Google or the Go project.
+
+If the r2go artwork combines or modifies the official Go Logo, review the
+current rules at https://go.dev/brand before public distribution and obtain any
+approval required by those rules.

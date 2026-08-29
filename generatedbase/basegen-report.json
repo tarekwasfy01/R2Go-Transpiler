@@ -1,0 +1,649 @@
+{
+  "source": ".cache/r-source-ref/src/library/base/R",
+  "files": 160,
+  "parsed": 160,
+  "failed": 0,
+  "expressions": 1272,
+  "statuses": [
+    {
+      "file": "Bessel.R",
+      "expressions": 4
+    },
+    {
+      "file": "Defunct.R",
+      "expressions": 6
+    },
+    {
+      "file": "Deprecated.R",
+      "expressions": 1
+    },
+    {
+      "file": "LAPACK.R",
+      "expressions": 3
+    },
+    {
+      "file": "New-Internal.R",
+      "expressions": 64
+    },
+    {
+      "file": "RNG.R",
+      "expressions": 3
+    },
+    {
+      "file": "S3extensions.R",
+      "expressions": 4
+    },
+    {
+      "file": "Scripts.R",
+      "expressions": 1
+    },
+    {
+      "file": "TAOCP.R",
+      "expressions": 1
+    },
+    {
+      "file": "all.equal.R",
+      "expressions": 14
+    },
+    {
+      "file": "allnames.R",
+      "expressions": 2
+    },
+    {
+      "file": "aperm.R",
+      "expressions": 3
+    },
+    {
+      "file": "append.R",
+      "expressions": 1
+    },
+    {
+      "file": "apply.R",
+      "expressions": 1
+    },
+    {
+      "file": "array.R",
+      "expressions": 5
+    },
+    {
+      "file": "as.R",
+      "expressions": 23
+    },
+    {
+      "file": "assign.R",
+      "expressions": 2
+    },
+    {
+      "file": "attach.R",
+      "expressions": 6
+    },
+    {
+      "file": "attr.R",
+      "expressions": 1
+    },
+    {
+      "file": "autoload.R",
+      "expressions": 2
+    },
+    {
+      "file": "backquote.R",
+      "expressions": 2
+    },
+    {
+      "file": "backsolve.R",
+      "expressions": 2
+    },
+    {
+      "file": "bindenv.R",
+      "expressions": 8
+    },
+    {
+      "file": "bitwise.R",
+      "expressions": 6
+    },
+    {
+      "file": "builtins.R",
+      "expressions": 1
+    },
+    {
+      "file": "by.R",
+      "expressions": 4
+    },
+    {
+      "file": "callCC.R",
+      "expressions": 1
+    },
+    {
+      "file": "cat.R",
+      "expressions": 1
+    },
+    {
+      "file": "character.R",
+      "expressions": 17
+    },
+    {
+      "file": "chol.R",
+      "expressions": 3
+    },
+    {
+      "file": "colSums.R",
+      "expressions": 8
+    },
+    {
+      "file": "conditions.R",
+      "expressions": 32
+    },
+    {
+      "file": "conflicts.R",
+      "expressions": 1
+    },
+    {
+      "file": "connections.R",
+      "expressions": 54
+    },
+    {
+      "file": "constants.R",
+      "expressions": 5
+    },
+    {
+      "file": "contributors.R",
+      "expressions": 1
+    },
+    {
+      "file": "cut.R",
+      "expressions": 3
+    },
+    {
+      "file": "data.matrix.R",
+      "expressions": 1
+    },
+    {
+      "file": "dataframe.R",
+      "expressions": 53
+    },
+    {
+      "file": "dates.R",
+      "expressions": 39
+    },
+    {
+      "file": "datetime.R",
+      "expressions": 113
+    },
+    {
+      "file": "dcf.R",
+      "expressions": 3
+    },
+    {
+      "file": "debug.R",
+      "expressions": 8
+    },
+    {
+      "file": "delay.R",
+      "expressions": 1
+    },
+    {
+      "file": "det.R",
+      "expressions": 3
+    },
+    {
+      "file": "diag.R",
+      "expressions": 2
+    },
+    {
+      "file": "diff.R",
+      "expressions": 2
+    },
+    {
+      "file": "dput.R",
+      "expressions": 2
+    },
+    {
+      "file": "dump.R",
+      "expressions": 1
+    },
+    {
+      "file": "duplicated.R",
+      "expressions": 12
+    },
+    {
+      "file": "dynload.R",
+      "expressions": 16
+    },
+    {
+      "file": "eapply.R",
+      "expressions": 1
+    },
+    {
+      "file": "eigen.R",
+      "expressions": 4
+    },
+    {
+      "file": "environment.R",
+      "expressions": 3
+    },
+    {
+      "file": "eval.R",
+      "expressions": 16
+    },
+    {
+      "file": "expand.grid.R",
+      "expressions": 1
+    },
+    {
+      "file": "factor.R",
+      "expressions": 32
+    },
+    {
+      "file": "files.R",
+      "expressions": 38
+    },
+    {
+      "file": "findInt.R",
+      "expressions": 1
+    },
+    {
+      "file": "formals.R",
+      "expressions": 5
+    },
+    {
+      "file": "format.R",
+      "expressions": 9
+    },
+    {
+      "file": "frametools.R",
+      "expressions": 7
+    },
+    {
+      "file": "funprog.R",
+      "expressions": 11
+    },
+    {
+      "file": "get.R",
+      "expressions": 5
+    },
+    {
+      "file": "getenv.R",
+      "expressions": 4
+    },
+    {
+      "file": "gl.R",
+      "expressions": 1
+    },
+    {
+      "file": "grep.R",
+      "expressions": 18
+    },
+    {
+      "file": "identical.R",
+      "expressions": 3
+    },
+    {
+      "file": "ifelse.R",
+      "expressions": 1
+    },
+    {
+      "file": "interaction.R",
+      "expressions": 1
+    },
+    {
+      "file": "is.R",
+      "expressions": 4
+    },
+    {
+      "file": "jitter.R",
+      "expressions": 1
+    },
+    {
+      "file": "kappa.R",
+      "expressions": 7
+    },
+    {
+      "file": "kronecker.R",
+      "expressions": 3
+    },
+    {
+      "file": "labels.R",
+      "expressions": 2
+    },
+    {
+      "file": "lapply.R",
+      "expressions": 2
+    },
+    {
+      "file": "lazyload.R",
+      "expressions": 2
+    },
+    {
+      "file": "library.R",
+      "expressions": 17
+    },
+    {
+      "file": "license.R",
+      "expressions": 1
+    },
+    {
+      "file": "load.R",
+      "expressions": 6
+    },
+    {
+      "file": "locales.R",
+      "expressions": 4
+    },
+    {
+      "file": "mapply.R",
+      "expressions": 3
+    },
+    {
+      "file": "match.R",
+      "expressions": 11
+    },
+    {
+      "file": "match.fun.R",
+      "expressions": 1
+    },
+    {
+      "file": "matrix.R",
+      "expressions": 17
+    },
+    {
+      "file": "max.col.R",
+      "expressions": 1
+    },
+    {
+      "file": "mean.R",
+      "expressions": 2
+    },
+    {
+      "file": "merge.R",
+      "expressions": 3
+    },
+    {
+      "file": "message.R",
+      "expressions": 7
+    },
+    {
+      "file": "methodsSupport.R",
+      "expressions": 8
+    },
+    {
+      "file": "mode.R",
+      "expressions": 3
+    },
+    {
+      "file": "namespace.R",
+      "expressions": 38
+    },
+    {
+      "file": "notyet.R",
+      "expressions": 2
+    },
+    {
+      "file": "octhex.R",
+      "expressions": 18
+    },
+    {
+      "file": "options.R",
+      "expressions": 2
+    },
+    {
+      "file": "outer.R",
+      "expressions": 2
+    },
+    {
+      "file": "pairlist.R",
+      "expressions": 2
+    },
+    {
+      "file": "parse.R",
+      "expressions": 4
+    },
+    {
+      "file": "paste.R",
+      "expressions": 2
+    },
+    {
+      "file": "plot.R",
+      "expressions": 1
+    },
+    {
+      "file": "pmax.R",
+      "expressions": 4
+    },
+    {
+      "file": "pretty.R",
+      "expressions": 3
+    },
+    {
+      "file": "print.R",
+      "expressions": 15
+    },
+    {
+      "file": "qr.R",
+      "expressions": 11
+    },
+    {
+      "file": "quit.R",
+      "expressions": 2
+    },
+    {
+      "file": "range.R",
+      "expressions": 3
+    },
+    {
+      "file": "rank.R",
+      "expressions": 1
+    },
+    {
+      "file": "raw.R",
+      "expressions": 13
+    },
+    {
+      "file": "rep.R",
+      "expressions": 3
+    },
+    {
+      "file": "replace.R",
+      "expressions": 1
+    },
+    {
+      "file": "replicate.R",
+      "expressions": 1
+    },
+    {
+      "file": "rev.R",
+      "expressions": 2
+    },
+    {
+      "file": "rle.R",
+      "expressions": 3
+    },
+    {
+      "file": "rm.R",
+      "expressions": 2
+    },
+    {
+      "file": "rowsum.R",
+      "expressions": 3
+    },
+    {
+      "file": "sample.R",
+      "expressions": 2
+    },
+    {
+      "file": "sapply.R",
+      "expressions": 3
+    },
+    {
+      "file": "scale.R",
+      "expressions": 2
+    },
+    {
+      "file": "scan.R",
+      "expressions": 1
+    },
+    {
+      "file": "seq.R",
+      "expressions": 4
+    },
+    {
+      "file": "serialize.R",
+      "expressions": 5
+    },
+    {
+      "file": "sets.R",
+      "expressions": 6
+    },
+    {
+      "file": "sink.R",
+      "expressions": 2
+    },
+    {
+      "file": "solve.R",
+      "expressions": 4
+    },
+    {
+      "file": "sort.R",
+      "expressions": 13
+    },
+    {
+      "file": "sort_by.R",
+      "expressions": 3
+    },
+    {
+      "file": "source.R",
+      "expressions": 3
+    },
+    {
+      "file": "split.R",
+      "expressions": 8
+    },
+    {
+      "file": "srcfile.R",
+      "expressions": 16
+    },
+    {
+      "file": "stop.R",
+      "expressions": 8
+    },
+    {
+      "file": "structure.R",
+      "expressions": 1
+    },
+    {
+      "file": "strwrap.R",
+      "expressions": 4
+    },
+    {
+      "file": "summary.R",
+      "expressions": 7
+    },
+    {
+      "file": "svd.R",
+      "expressions": 1
+    },
+    {
+      "file": "sweep.R",
+      "expressions": 1
+    },
+    {
+      "file": "sys.R",
+      "expressions": 10
+    },
+    {
+      "file": "table.R",
+      "expressions": 13
+    },
+    {
+      "file": "tabulate.R",
+      "expressions": 1
+    },
+    {
+      "file": "tapply.R",
+      "expressions": 1
+    },
+    {
+      "file": "taskCallback.R",
+      "expressions": 4
+    },
+    {
+      "file": "temp.R",
+      "expressions": 2
+    },
+    {
+      "file": "time.R",
+      "expressions": 4
+    },
+    {
+      "file": "toString.R",
+      "expressions": 2
+    },
+    {
+      "file": "traceback.R",
+      "expressions": 2
+    },
+    {
+      "file": "unlist.R",
+      "expressions": 1
+    },
+    {
+      "file": "unname.R",
+      "expressions": 1
+    },
+    {
+      "file": "userhooks.R",
+      "expressions": 4
+    },
+    {
+      "file": "utilities.R",
+      "expressions": 2
+    },
+    {
+      "file": "utils.R",
+      "expressions": 3
+    },
+    {
+      "file": "vector.R",
+      "expressions": 7
+    },
+    {
+      "file": "version.R",
+      "expressions": 31
+    },
+    {
+      "file": "warnings.R",
+      "expressions": 9
+    },
+    {
+      "file": "which.R",
+      "expressions": 4
+    },
+    {
+      "file": "withVisible.R",
+      "expressions": 1
+    },
+    {
+      "file": "write.R",
+      "expressions": 1
+    },
+    {
+      "file": "xor.R",
+      "expressions": 1
+    },
+    {
+      "file": "zapsmall.R",
+      "expressions": 1
+    },
+    {
+      "file": "zdatetime.R",
+      "expressions": 1
+    },
+    {
+      "file": "zdynvars.R",
+      "expressions": 2
+    },
+    {
+      "file": "zzz.R",
+      "expressions": 114
+    }
+  ]
+}
