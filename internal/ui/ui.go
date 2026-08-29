@@ -5,7 +5,6 @@ import (
 	"fmt"
 	"image/color"
 	"io"
-	"os"
 	"runtime"
 	"strings"
 	"sync/atomic"
@@ -25,6 +24,7 @@ import (
 	"github.com/oligo/gvcode/textstyle/syntax"
 	gvwidget "github.com/oligo/gvcode/widget"
 
+	standalone "r2go"
 	"r2go/internal/appcore"
 	"r2go/internal/highlight"
 	"r2go/internal/platform"
@@ -382,7 +382,7 @@ func (a *App) startSaveAs(reader io.Reader) {
 			path, err = platform.SaveGoFileDialog("output.go")
 		}
 		if err == nil && path != "" {
-			err = os.WriteFile(path, data, 0644)
+			err = standalone.WriteProgram(path, data)
 		}
 		select {
 		case a.saveResults <- saveResult{path: path, err: err}:

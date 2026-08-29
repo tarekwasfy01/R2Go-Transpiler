@@ -9,6 +9,7 @@ import (
 	"strings"
 
 	"gioui.org/app"
+	standalone "r2go"
 	"r2go/compiler"
 	"r2go/internal/appcore"
 	"r2go/internal/licenses"
@@ -47,7 +48,7 @@ func main() {
 		err = transpile(os.Args[2:])
 	case "version":
 		platform.EnsureCLIConsole()
-		fmt.Println("r2go development")
+		fmt.Println("R2Go v2.1 standalone-runtime")
 	case "coverage":
 		platform.EnsureCLIConsole()
 		err = coverage(os.Args[2:])
@@ -197,5 +198,5 @@ func transpile(args []string) error {
 	if e != nil {
 		return e
 	}
-	return os.WriteFile(*out, source, 0644)
+	return standalone.WriteProgram(*out, source)
 }
