@@ -1,0 +1,6 @@
+NOTICE
+
+These files are a source translation of function bodies extracted from GNU R.
+GNU R is free software distributed under the GNU General Public License.
+This translated derivative code must be used and redistributed consistently with the applicable GNU R license terms and source provenance.
+The original source-file paths are retained in manifest.csv and registry.go.
